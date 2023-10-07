@@ -257,21 +257,6 @@ class PrologueEntranceClassroom(Classroom):
 
     db["COMPLETED_TUTORIAL_BEFORE"] = True
     
-    # O ok
-    # just testing man (akash )
-    # my cursor keeps moving around.... it ok
-    #player.sendEmail(IEDOverdoseEmail)
-    #player.sendEmail(PoolesvilleAcceptanceEmail)
-    #player.sendEmail(MESAEmail)
-    #player.sendEmail(MESAFollowUpEmail)
-    #player.sendEmail(RainbowHawksEmail)
-    #player.sendEmail(CodeHSAnswersEmail)
-    #player.sendEmail(AssignmentGradedEmail)
-    #player.sendEmail(RCMSLoreEmail)
-    #player.sendEmail(WantedCriminalEmail)
-    #player.sendEmail(BaldastanEmail)
-    #player.sendEmail(NameChangeEmail)
-    
     return
 
 
@@ -747,6 +732,7 @@ class Room235Classroom(Classroom):
       printBoxedText("Room 235 - Ms. Lee's Engineering Classroom")
       print() 
       printC("You're in the Engineering Classroom, as you enter, a wave of fear and anxiety washes over you.")
+      player.sendEmail(IEDOverdoseEmail)
   
       if player.hasFlag("235_Int1_MsLeeIntroduction") == False:
         dialNoSpeaker("Ms. Lee greets you as you enter the classroom.")
@@ -1152,6 +1138,7 @@ class Room236AClassroom(Classroom):
         dial("Ms. Ramasamy","I’ve told Katherine many times that she shouldn’t be striving for perfectionism but she never listens.")
         dial("Ms. Ramasamy","She thinks getting anything below a perfect score will “cut her life expectancy in half”.")
         dial("Ms. Ramasamy","Now that I think about it, maybe she isn’t wrong.")
+        player.sendEmail(AssignmentGradedEmail)
       elif player.questProgressIsAt(IronicCriminalPursuitQuest, 5):
         dialNoSpeaker("Unfortunately, the door's locked.")
         dial("Katherine","... what? I could’ve sworn it was open before.")
@@ -1361,6 +1348,7 @@ class Room236AClassroom(Classroom):
               dialNoSpeaker("Pilliam leaves the classroom, presumably to meet up with Ms. Palank.")
               player.incrementQuestProgress(GrammarCheckerQuest)
               player.addFlag("236A_Int2_PilliamLeavesClassroom")
+              player.sendEmail(CodeHSAnswersEmail)
           else:
             dial("???","Bro who are you talking to, Pilliam isn't here.")
         elif choice == 2:
@@ -1877,6 +1865,7 @@ class MediaCenterClassroom(Classroom):
             dialNoSpeaker("You pull the book out of the shelf and start reading it.")
             story = "If you're reading this, it's a bug! TwT"
             if choice == 1:
+              player.sendEmail(RCMSLoreEmail)
               story = '''\
 *Aesop's Fables: The Legend of the Arduino Closet*
 
@@ -3449,6 +3438,7 @@ class Room128Classroom(Classroom):
           dial("Katherine","{}? That's nice.".format(player.getName()))
           dialNoSpeaker("Peter and Katherine join your party.")
           player.incrementQuestProgress(IronicCriminalPursuitQuest)
+          player.sendEmail(MESAEmail)
         else:
           dial("Katherine", "No? Then go find one!")
       elif player.questProgressIsAtLeast(IronicCriminalPursuitQuest, 5): # interaction 3
@@ -3507,6 +3497,7 @@ class Room128Classroom(Classroom):
           dial("Ms. Presley","You know what, I'll continute this lab tomorrow.")
           dial("Ms. Presley","The rest of you can open your chromebooks and complete your vocabulary assignment.")
           player.addFlag("128_Int1_OmkarDisruptsLesson")
+          player.sendEmail(MESAFollowUpEmail)
         elif choice == 2:
           player.classroom = None
           return
@@ -3655,7 +3646,7 @@ class ShriramsShadySalesClassroom(Classroom):
         elif choice == 2:
           player.classroom = Room128Classroom()
       else:
-
+        player.sendEmail(WantedCriminalEmail)
         printC("Shriram is organizing his products by size, he should really use a sorting algorithm.")
         choice = dropdownMenu("What do you do?",["Purchase something from Shriram","Leave the closet."])
         if choice == 1:
@@ -3866,6 +3857,8 @@ class Room143Classroom(Classroom):
           dial("Peter","...that’s not very nice. TwT")
           dial("Anna","It’s okay Peter, at least you’re better than Katherine.")
           dial("Katherine",".-.")
+          player.sendEmail(BrainSTEMOrderEmail)
+          player.sendEmail(BrainSTEMOrderFollowUpEmail)
         else:
           dial("Anna","Um... this is my home.")
           dial("Anna","I’m not answering any questions, thank you for your cooperation.")
@@ -3949,6 +3942,7 @@ class Room143Classroom(Classroom):
           dial("Anna","...that was weird.")
           player.addFlag("143_Int3_MasterKeysCollected")
           player.incrementQuestProgress(IronicCriminalPursuitQuest)
+          player.sendEmail(BaldastanEmail)
         else:
           dial("Anna","My replit account is very secretive.")
           dial("Katherine","._.")
@@ -3966,6 +3960,7 @@ class Room143Classroom(Classroom):
       dial("Anna","Please, leave me alone.")
       dial("Anna","I'm busy.")
       dial("Anna","Thanks.")
+      player.sendEmail(NameChangeEmail)
       player.classroom = None
       return
 
@@ -4157,6 +4152,7 @@ class Room120Classroom(Classroom):
       printBoxedText("Mr. Smith's English Classroom")
       print() 
       printC("Mr. Smith is currently teaching the class what an indefinite article is.")
+      player.sendEmail(PoolesvilleAcceptanceEmail)
 
       choice = dropdownMenu("What do you do?",["Listen to the lesson.","Play loud Deltarune music.","Leave the classroom."])
       if choice == 1:
