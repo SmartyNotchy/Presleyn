@@ -310,7 +310,7 @@ def printFlair(txt):
 
   print()
   printC("|R|>|Y|>|LG|> {} |LG|<|Y|<|R|<".format(" " * messageLen))
-  print("\x1b[3A")
+  print("\x1b[2A")
 
   colors = ("R", "Y", "G", "LB", "DB", "PU", "PI", "R", "Y", "G", "LB", "DB", "PU", "PI")
 
