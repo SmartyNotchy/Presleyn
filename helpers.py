@@ -449,7 +449,7 @@ def timedHitbar(speedCoeff, zones):
     while INTERNAL_WaitingForHit:
       print("\x1b[{}C V ".format(INTERNAL_HitbarPos), end="\r")
       
-      time.sleep(0.15 / INTERNAL_HitbarSpeed)
+      time.sleep(0.075 / INTERNAL_HitbarSpeed)
 
       if INTERNAL_HitbarDir:
         INTERNAL_HitbarPos += 1
@@ -475,13 +475,13 @@ def timedHitbar(speedCoeff, zones):
   # Hit animation
   # This might lag
 
-  for i in range(3):
+  for i in range(6):
     print("\x1b[{}C".format(FinalHitbarPos) + " V ", end="\r")
     printC("╠" + "═" * sum(INTERNAL_HitbarZones) + "╣", "W")
     printC("║" + "\x1b[{}C".format(sum(INTERNAL_HitbarZones)) + "║", "W")
     printC("╠" + "═" * sum(INTERNAL_HitbarZones) + "╣", "W")
     
-    time.sleep(0.1)
+    time.sleep(0.05)
     
     print("\x1B[3A", end="")
     
@@ -489,7 +489,7 @@ def timedHitbar(speedCoeff, zones):
     printC("║" + "\x1b[{}C".format(sum(INTERNAL_HitbarZones)) + "║", "B")
     printC("╠" + "═" * sum(INTERNAL_HitbarZones) + "╣", "B")
     
-    time.sleep(0.1)
+    time.sleep(0.05)
 
     print("\x1B[3A", end="")
 
