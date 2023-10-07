@@ -31,6 +31,7 @@ class PrologueEntranceClassroom(Classroom):
         dialNoSpeaker("The door handle wobbles a bit when you try to twist it loose.")
         dialNoSpeaker("You feel like you should try it again.")
         deleteLines(12)
+      flush_input()
 
     
     dialNoSpeaker("Suddenly, you run face to face into someone.")
@@ -548,39 +549,105 @@ class NursesOfficeClassroom(Classroom):
       if player.act == 1 and player.questProgressIsAtLeast(IronicCriminalPursuitQuest, 5):
         dial("Katherine", "You alright? That last spell must have hurt a lot.")
         dial("Nurse", "Don’t worry, they’re all stitched back together...")
+        dial("Nurse", "By the way, |LB|Katherine|B|, thanks for the tip of tickets. Don't usually get those around here.")
         dial("Peter", "But all you did was use an ice pack on them...")
-        dial("Nurse", "(Ignoring Peter) Good luck out there!")
+        dial("Nurse", "*(Ignoring Peter)* Good luck out there!")
       else:
         dial("Nurse", "You alright? That last spell must have hurt a lot.")
-        dial("Nurse", "Don’t worry, you’re all stitched back together... good luck out there!")
+        dial("Nurse", "Don’t worry, you’re all stitched back together.")
+        dial("Nurse", "I would take some tickets as a price, but you were kind of unconscious, and that would be stealing, so...")
+        dial("Nurse", "Consider leaving a tip, would ya?")
       player.classroom = None
     else:
-      dialNoSpeaker("You enter the nurse’s office, hoping for any ailments to subdue your vitamin D deficiency.")
-      dial("Nurse", "Apologies, the nurse’s office is only for those who sustained injuries resulting from overexposure to cell phones-")
-      dial("Nurse", "Spell battles, I mean. Sorry.")
-      choice = dropdownMenu("What will you do?", ["Leave the classroom", "Ask how many times you were injured"])
-      if choice == 1:
+      printC("You're in the nurse’s office, hoping for any ailments to subdue your vitamin D deficiency.")
+      printC("\n|R|Nurse|B|: Well, what are you in for today?")
+
+      choice = dropdownMenu("What will you do?", ["Request Healing", "Ask a question", "Leave the classroom"])
+      if choice == 3:
         player.classroom = None
         return
-      else:
-        dial("Nurse", "Hm? Let me check the records.")
-        dialNoSpeaker("The Nurse returns to their desk and checks something on their computers.")
-        dial("Nurse", "Looks like you've been here for injuries |W|{}|B| times...".format(player.deaths))
-        if player.deaths == 0:
-          dial("Nurse", "Wow, props to you for being safe out there.")
-        elif player.deaths < 4:
-          dial("Nurse", "Don't worry, it happens to the best of us from time to time.")
-        elif player.deaths < 20:
-          dial("Nurse", "Maybe be a bit more careful out there...")
-        elif player.deaths < 1000:
-          dial("Nurse", "Ouch, that's gotta hurt. Do you want a lollipop?")
-          dial("Nurse", "Oh wait, I ran out of them...")
+      elif choice == 2:
+        dial("Nurse", "Fine, but make it quick.")
+        choice = dropdownMenu("Ask a question...", ["I thought spell battles didn't injure you...", "How many spell battles have I lost?", "Actually, never mind."])
+        if choice == 1:
+          dial("Nurse", "Yep, that's right.")
+          dial("Nurse", "Actually, that's a good question. Why *are* you in here for spell injuries?")
+          dial("Nurse", "Let me check your medical info.")
+          dialNoSpeaker("The Nurse returns to their desk and checks something on their computer.")
+          dial("Nurse", "Oh, of course, of course.")
+          dial("Nurse", "It appears you have a rare medical condition that leads to |W|increased sensitivity to magic|B|.")
+          dial("Nurse", "This makes it so that you can cast spells more accurately than other students, but spell damage will hit you harder.")
+          dial("Nurse", "... what do you mean, \"why is magic still allowed in this school?\"")
+          dial("Nurse", "I mean it's not like we can just \"cancel\" spells...")
+          dialNoSpeaker("|DG|The Nurse not-so-discreetly tears a poster labelled \"2019 Magnet 8th Grade Boston Trip\" off the wall.")
+          dial("Nurse", "... spells were the *main selling point* of this school, after all, and we're not going to just cancel it.")
+          if player.act == 1 and player.questProgressIsAtLeast(IronicCriminalPursuitQuest, 5):
+            dial("Katherine", "...")
+            dial("Peter", "...")
+          dialNoSpeaker("You give the Nurse a dirty look.")
+          dial("Nurse", "What?")
+        elif choice == 2:
+          dial("Nurse", "Hm? Let me check the records.")
+          dialNoSpeaker("The Nurse returns to their desk and checks something on their computer.")
+          dial("Nurse", "Looks like you've been here for critical spell-related injuries |W|{}|B| times...".format(player.deaths))
+          if player.deaths == 0:
+            dial("Nurse", "Wow, props to you for being safe out there.")
+          elif player.deaths < 4:
+            dial("Nurse", "Don't worry, it happens to the best of us from time to time.")
+          elif player.deaths < 20:
+            dial("Nurse", "Maybe be a bit more careful out there...")
+          elif player.deaths < 1000:
+            dial("Nurse", "Ouch, that's gotta hurt. Do you want a lollipop?")
+            dial("Nurse", "Oh wait, I ran out of them...")
+          else:
+            dial("Nurse", "Okay, that's just impressive at this point.")
+            dial("Nurse", "Are you sure you don't need to visit a doctor?")
+        elif choice == 3:
+          dial("Nurse", "...")
+          dial("Nurse", "Quit wasting my time.")
+        enter()
+        return
+      elif choice == 1:
+        if player.health == player.getMaxHealth():
+          dial("Nurse", "What? You're perfectly fine.")
+          dial("Nurse", "Trust me, don't try to fake an injury to get out of school. It won't work.")
         else:
-          dial("Nurse", "Okay, that's just impressive at this point.")
-          dial("Nurse", "Are you sure you don't need to visit the doctor?")
-        player.classroom = None
+          toHeal = player.getMaxHealth() - player.health
+          price = toHeal // 5 + 20
+          if player.hasFlag("Nurses_PerishDebtUnpaid"):
+            price += 50
+          if not player.hasFlag("Nurses_TicketPricing"):
+            player.addFlag("Nurses_TicketPricing")
+            dial("Nurse", "Alright, I can heal you for |R|{}|B| health.".format(toHeal))
+            dial("Nurse", "I usually do it for free...")
+            dial("Nurse", "But I've seen y'all use these \"tickets\" for purchasing stuff around here.")
+            dial("Nurse", "Maybe if I start charging them for healing, people will stop coming in here so often.")
+            dial("Nurse", "Plus, I could probably get myself a couple of coffees for free.")
+            dial("Nurse", "I'll do it for, say, |W|{}|B| tickets, whadd'ya think?".format(price))
+          else:
+            dial("Nurse", "For |W|{}|B| tickets, I can heal you for |R|{}|B| health.".format(price, toHeal))
+          choice = dropdownMenu("You have |W|{}|B| tickets. Pay |W|{}|B| of them for healing?".format(player.tickets, price), ["|G|Okay", "|R|No way"])
+          if choice == 1:
+            if player.takeTickets(price):
+              player.health = player.getMaxHealth()
+              dialNoSpeaker("You paid the Nurse |W|{}|B| tickets.".format(price))
+              dialNoSpeaker("In return, the Nurse applies an ice pack to your head.")
+              dial("Nurse", "Alright, you're good to go.")
+              if player.act == 1 and player.questProgressIsAtLeast(IronicCriminalPursuitQuest, 5):
+                dial("Peter", "But all you did was use an ice pack on them...")
+              dial("Nurse", "~~Glory to the American Healthcare System-~~ I mean, come again soon!")
+              if player.hasFlag("Nurses_PerishDebtUnpaid"):
+                player.removeFlag("Nurses_PerishDebtUnpaid")
+                dialNoSpeaker("|DG|*The 50 ticket tax on healing has been removed.*")
+            else:
+              dial("Nurse", "Wow, you're poor.")
+              dial("Nurse", "That kind of sucks.")
+              dial("Nurse", "Come back with more tickets!")
+          else:
+            dial("Nurse", "Suit yourself.")
+        enter()
         return
-        
+
       
 class Room251Classroom(Classroom):
   def __init__(self):
@@ -1046,6 +1113,7 @@ class Room236AClassroom(Classroom):
         dial("Ms. Ramasamy","Katherine... I can still hear you...")
         dial("Katherine","Sorry...")
         player.incrementQuestProgress(IronicCriminalPursuitQuest)
+        player.sendEmail(NursesOfficeEmail)
       elif player.questProgressIsAt(IronicCriminalPursuitQuest, 2): # Interaction #2 
         if choice == 1:
           dial("Ms. Ramasamy", "Katherine probably isn't going to leave any time soon, is she?")

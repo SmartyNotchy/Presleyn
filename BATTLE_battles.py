@@ -75,11 +75,12 @@ def runBattle(player, enemy, defaultDeath=True):
   battlePlayer.nameColor = player.nameColor
   battlePlayer.selectedWand = player.selectedWand
   battlePlayer.arsenal = player.arsenal
+  battlePlayer.health = player.health
 
   for pair in BATTLE_SCROLLS.items():
     if player.hasItem(pair[0]):
       battlePlayer.maxHealth += pair[1]
-  battlePlayer.health = battlePlayer.maxHealth
+  #battlePlayer.health = battlePlayer.maxHealth
   
   for player_item in player.items:
     if player_item.type == 0:
@@ -116,12 +117,20 @@ def runBattle(player, enemy, defaultDeath=True):
     elif not enemy.update():
       print()
       printC("You won the battle!", "G")
+      healed = int(player.maxHealth / 4)
+      player.health += healed
+      if player.health > player.maxHealth:
+        healed -= (player.health - player.maxHealth)
+        player.health = player.maxHealth
+      if healed != 0:
+        printC("The victory empowers you, healing you for |R|{}|B| health!".format(healed), "B")
       flush_input()
       enter()
 
       for item in battlePlayer.items:
         mapPlayer.items.append(item)
-        
+      
+      mapPlayer.health = player.health
       return True
 
     if not player.attack(enemy):

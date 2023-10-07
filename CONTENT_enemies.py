@@ -67,7 +67,7 @@ class SofyaBattleStudent(BattleEnemy):
       else:
         self.healCooldown -= 1
 
-    self.selectedWand.exactCast(random.choice(self.arsenal[1:]), self, target, randomZone(0.6, 0.3, 0.1))
+    self.selectedWand.exactCast(random.choice(self.arsenal[1:]), self, target, randomZone(0.2, 0.7, 0.1))
 
 
 
@@ -107,7 +107,7 @@ class LillianBattleStudent(BattleEnemy):
       self.selectedWand.exactCast(self.arsenal[1], self, target, randomZone(0.1, 0.4, 0.5))
       self.boostCooldown = 5
     else:
-      self.selectedWand.exactCast(random.choice(self.arsenal[2:]), self, target, randomZone(0.4, 0.4, 0.2))
+      self.selectedWand.exactCast(random.choice(self.arsenal[2:]), self, target, randomZone(0.2, 0.6, 0.2))
 
 
 
@@ -159,7 +159,7 @@ class SayfBattleStudent(BattleEnemy):
     self.sayfCooldown = 3
     
   def attack(self, target):
-    self.selectedWand.exactCast(self.arsenal[self.attackOn], self, target, randomZone(0.6, 0.0, 0.4))
+    self.selectedWand.exactCast(self.arsenal[self.attackOn], self, target, randomZone(0.4, 0.0, 0.6))
     if self.attackOn == 1:
       self.sayfCooldown -= 1
       if self.sayfCooldown == 0:

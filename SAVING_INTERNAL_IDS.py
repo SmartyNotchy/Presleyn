@@ -139,6 +139,7 @@ INTERNAL_IDS = {
   6010: WantedCriminalEmail,
   6011: BaldastanEmail,
   6012: NameChangeEmail,
+  6013: NursesOfficeEmail,
   
   7001: ScrollOfSupportItem,
   7002: ScrollOfDiversityItem,

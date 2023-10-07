@@ -186,7 +186,7 @@ def printC(txt, base_col = "DG", end = "\n", ignore_colors = False):
 def clear():
   #print("\x1b[2J\x1b[1;1H", end="")
   os.system("cls")
-  printC("Presleyn Beta v0.2.0.2 - Acts I & II Playtesting Build (Windows Edition)")
+  printC("Presleyn Demo - Acts I & II Playtesting Build (Windows Edition)")
 
 def clearArea(lines, offset, amount):
   for i in range(lines):
@@ -281,13 +281,13 @@ def dialNoSpeaker(text):
   printC("\n" + text, "B", end="")
   input()
 
-def typewrite(text, color = "B", waitTime=0.03):
+def typewrite(text, color = "B", waitTime=0.01):
   waitTimeBuildup = 0
   for char in text:
     printC(char, color, end="")
     sys.stdout.flush()
     waitTimeBuildup += waitTime
-    if waitTimeBuildup >= 0.075:
+    if waitTimeBuildup >= 0:
       time.sleep(waitTimeBuildup)
       waitTimeBuildup = 0
 
@@ -305,63 +305,37 @@ INTERNAL_FLAIR_TERMINATE = False
 INTERNAL_FLAIR_ENDED = False
 
 def printFlair(txt):
-  global INTERNAL_FLAIR_TERMINATE, INTERNAL_FLAIR_ENDED
-  INTERNAL_FLAIR_TERMINATE = False
-  INTERNAL_FLAIR_ENDED = False
-  
-  def animateFlair():
-    global INTERNAL_FLAIR_TERMINATE, INTERNAL_FLAIR_ENDED
-    cursor.hide()
-    messageLen = len(txt)
+  cursor.hide()
+  messageLen = len(txt)
 
-    print()
-    printC("|R|>|Y|>|LG|> {} |LG|<|Y|<|R|<".format(" " * messageLen))
-    print()
-    printC("Press Enter to Continue:", "DG")
-    print("\x1b[4A")
+  print()
+  printC("|R|>|Y|>|LG|> {} |LG|<|Y|<|R|<".format(" " * messageLen))
+  print("\x1b[3A")
 
-    colors = ("R", "Y", "G", "LB", "DB", "PU", "PI", "R", "Y", "G", "LB", "DB", "PU", "PI")
+  colors = ("R", "Y", "G", "LB", "DB", "PU", "PI", "R", "Y", "G", "LB", "DB", "PU", "PI")
 
-    i = 0
-    while not INTERNAL_FLAIR_TERMINATE or (i * 3) < messageLen:
-      colorsToPrint = colors[i % 3:i % 3 + 3]
-  
-      printC("|{}|>|{}|>|{}|> ".format(*colorsToPrint), end="")
-      
-      
-      message = txt
-  
-      if i * 3 >= messageLen:
-        message = "|B|" + message
-      else:
-        message = "|B|" + message[:i * 3] + "|W|" + message[i * 3:i*3 + 3] + " " * (messageLen - i * 3 - 3)
-  
-      printC(message+ " |{}|<|{}|<|{}|<".format(*colorsToPrint[::-1]))
-      
-      print("\x1b[2A")
-      i += 1
-      time.sleep(0.1)
+  i = 0
+  while i < messageLen:
+    colorsToPrint = colors[i % 3:i % 3 + 3]
 
-    INTERNAL_FLAIR_ENDED = True
-
-  def endAnimation():
-    global INTERNAL_FLAIR_TERMINATE, INTERNAL_FLAIR_ENDED
-    input()
-    INTERNAL_FLAIR_TERMINATE = True
-    return
-  
-  t1 = Thread(target=animateFlair)
-  t2 = Thread(target=endAnimation)
-
-  t1.start()
-  t2.start()
-  t2.join()
-
-  while not INTERNAL_FLAIR_ENDED:
-    pass
+    printC("|{}|>|{}|>|{}|> ".format(*colorsToPrint), end="")
     
-  print("\x1b[A")
+    
+    message = txt
 
+    if i >= messageLen:
+      message = "|B|" + message
+    else:
+      message = "|B|" + message[:i] + "|W|" + message[i] + " " * (messageLen - i - 1)
+
+    printC(message+ " |{}|<|{}|<|{}|<".format(*colorsToPrint[::-1]))
+    
+    print("\x1b[2A")
+    i += 1
+    time.sleep(0.01)
+
+
+  enter()
 
 ####################
 ## NUMBER HELPERS ##
@@ -449,7 +423,7 @@ def timedHitbar(speedCoeff, zones):
     while INTERNAL_WaitingForHit:
       print("\x1b[{}C V ".format(INTERNAL_HitbarPos), end="\r")
       
-      time.sleep(0.15 / INTERNAL_HitbarSpeed)
+      time.sleep(0.06 / INTERNAL_HitbarSpeed)
 
       if INTERNAL_HitbarDir:
         INTERNAL_HitbarPos += 1
@@ -475,13 +449,13 @@ def timedHitbar(speedCoeff, zones):
   # Hit animation
   # This might lag
 
-  for i in range(3):
+  for i in range(6):
     print("\x1b[{}C".format(FinalHitbarPos) + " V ", end="\r")
     printC("╠" + "═" * sum(INTERNAL_HitbarZones) + "╣", "W")
     printC("║" + "\x1b[{}C".format(sum(INTERNAL_HitbarZones)) + "║", "W")
     printC("╠" + "═" * sum(INTERNAL_HitbarZones) + "╣", "W")
     
-    time.sleep(0.1)
+    time.sleep(0.05)
     
     print("\x1B[3A", end="")
     
@@ -489,7 +463,7 @@ def timedHitbar(speedCoeff, zones):
     printC("║" + "\x1b[{}C".format(sum(INTERNAL_HitbarZones)) + "║", "B")
     printC("╠" + "═" * sum(INTERNAL_HitbarZones) + "╣", "B")
     
-    time.sleep(0.1)
+    time.sleep(0.05)
 
     print("\x1B[3A", end="")
 
