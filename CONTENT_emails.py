@@ -20,7 +20,7 @@ will have a "Locked" sign on their door!'''
 class NursesOfficeEmail(Email):
   def __init__(self, starred, unread):
     self.subject = "Healing Opportunities"
-    self.sender = "The Nurse's Office"
+    self.sender = "The School Nurse"
     self.contents = '''\
 Feeling sick after losing a spell battle?
 Counselors can help with the emotional trauma,
