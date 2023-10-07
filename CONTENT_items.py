@@ -29,8 +29,8 @@ Heals for |R|40 health|--| when consumed in battles.
   def use(self, player, target):
     self.quantity -= 1
     printC("\nYou chug the |PI|Strawberry Shake|B|.")
-    remindsYouOf = random.choice(["wavedashing", "wallbouncing", "hyperdashing", "hyper-bunnyhopping", "chained ultras", "double block boosts", "Kevin Blocks", "superdashing", "mid-air supers", "neutral jumping", "dream smuggles"])
-    printC("It reminds you of |PI|{}|B| and gives you a burst of energy.".format(remindsYouOf))
+    remindsYouOf = random.choice(["wavedashing", "wallbouncing", "hyperdashing", "hyper-bunnyhopping", "chained ultras", "cassooted fupers", "leniency frames", "double block boosts", "Kevin Blocks", "superdashing", "mid-air supers", "neutral jumping", "dream smuggles"])
+    printC("It makes you think of |PI|{}|B| and gives you a burst of energy.".format(remindsYouOf))
     printC("You heal for |PI|40 |B|health.")
     player.heal(40)
 
@@ -173,7 +173,7 @@ negative.'''
 
   def use(self, player, target):
     if player.boost <= 1:
-      printC("\nYou don't think drinking the |O|Orange Fanta|B| would do anything, so you save it for later")
+      printC("\nYou don't think drinking the |O|Orange Fanta|B| would do anything, so you save it for later.")
       printC("|DG|*(Use this item with a positive boost to maximize its potential!)*")
     else:
       self.quantity -= 1
@@ -198,7 +198,9 @@ but everyone can agree that Pineapple Fanta is great.
 (Maybe.)
 
 Consuming it in battles will increase your boost by
-|Y|20%|B|, capping at |Y|50%|B|.'''
+|Y|20%|B|, capping at |Y|50%|B|.
+
+|DG|*Also, pineapple on pizza is the best. Period.*'''
 
     self.quantity = quantity
 
