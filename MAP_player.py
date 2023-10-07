@@ -137,7 +137,7 @@ class MapPlayer: # THIS IS THE OVERWORLD PLAYER NOT THE BATTLE PLAYER ok myan
   def hasReceivedEmail(self, email): # Checker
     email = email(False, True)
     for e in self.emails:
-      if e.name == email.name:
+      if e.subject == email.subject:
         return True
     return False
 
