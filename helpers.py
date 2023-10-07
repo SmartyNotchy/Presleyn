@@ -281,13 +281,13 @@ def dialNoSpeaker(text):
   printC("\n" + text, "B", end="")
   input()
 
-def typewrite(text, color = "B", waitTime=0.03):
+def typewrite(text, color = "B", waitTime=0.01):
   waitTimeBuildup = 0
   for char in text:
     printC(char, color, end="")
     sys.stdout.flush()
     waitTimeBuildup += waitTime
-    if waitTimeBuildup >= 0.075:
+    if waitTimeBuildup >= 0:
       time.sleep(waitTimeBuildup)
       waitTimeBuildup = 0
 
@@ -340,7 +340,7 @@ def printFlair(txt):
       
       print("\x1b[2A")
       i += 1
-      time.sleep(0.1)
+      time.sleep(0.075)
 
     INTERNAL_FLAIR_ENDED = True
 
