@@ -20,7 +20,7 @@ will have a "Locked" sign on their door!'''
 class NursesOfficeEmail(Email):
   def __init__(self, starred, unread):
     self.subject = "Healing Opportunities"
-    self.sender = "The Nurse's Office"
+    self.sender = "The School Nurse"
     self.contents = '''\
 Feeling sick after losing a spell battle?
 Counselors can help with the emotional trauma,
@@ -48,7 +48,7 @@ learn about all your favorite topics such as tonal
 shading, 3D modeling in OnSpace, and how to use a dial 
 caliper. Make sure that all your answers on every test 
 are accurate, they don't have to be precise. As a 
-reminder,  whenever there is a big project spanning 
+reminder, whenever there is a big project spanning 
 multiple weeks, make sure to enhance the likelihood of 
 getting a good grade by dressing up your project as a 
 certain member of the Animalia kingdom.
