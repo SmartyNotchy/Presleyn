@@ -131,7 +131,8 @@ class MapPlayer: # THIS IS THE OVERWORLD PLAYER NOT THE BATTLE PLAYER ok myan
       
 
   def sendEmail(self, email): # Modifier
-    self.emails.append(email(False, True))
+    if not self.hasReceivedEmail(email):
+      self.emails.append(email(False, True))
 
   def hasReceivedEmail(self, email): # Checker
     email = email(False, True)
