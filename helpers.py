@@ -305,63 +305,37 @@ INTERNAL_FLAIR_TERMINATE = False
 INTERNAL_FLAIR_ENDED = False
 
 def printFlair(txt):
-  global INTERNAL_FLAIR_TERMINATE, INTERNAL_FLAIR_ENDED
-  INTERNAL_FLAIR_TERMINATE = False
-  INTERNAL_FLAIR_ENDED = False
-  
-  def animateFlair():
-    global INTERNAL_FLAIR_TERMINATE, INTERNAL_FLAIR_ENDED
-    cursor.hide()
-    messageLen = len(txt)
+  cursor.hide()
+  messageLen = len(txt)
 
-    print()
-    printC("|R|>|Y|>|LG|> {} |LG|<|Y|<|R|<".format(" " * messageLen))
-    print()
-    printC("Press Enter to Continue:", "DG")
-    print("\x1b[4A")
+  print()
+  printC("|R|>|Y|>|LG|> {} |LG|<|Y|<|R|<".format(" " * messageLen))
+  print("\x1b[3A")
 
-    colors = ("R", "Y", "G", "LB", "DB", "PU", "PI", "R", "Y", "G", "LB", "DB", "PU", "PI")
+  colors = ("R", "Y", "G", "LB", "DB", "PU", "PI", "R", "Y", "G", "LB", "DB", "PU", "PI")
 
-    i = 0
-    while not INTERNAL_FLAIR_TERMINATE or (i * 3) < messageLen:
-      colorsToPrint = colors[i % 3:i % 3 + 3]
-  
-      printC("|{}|>|{}|>|{}|> ".format(*colorsToPrint), end="")
-      
-      
-      message = txt
-  
-      if i * 3 >= messageLen:
-        message = "|B|" + message
-      else:
-        message = "|B|" + message[:i * 3] + "|W|" + message[i * 3:i*3 + 3] + " " * (messageLen - i * 3 - 3)
-  
-      printC(message+ " |{}|<|{}|<|{}|<".format(*colorsToPrint[::-1]))
-      
-      print("\x1b[2A")
-      i += 1
-      time.sleep(0.075)
+  i = 0
+  while i < messageLen:
+    colorsToPrint = colors[i % 3:i % 3 + 3]
 
-    INTERNAL_FLAIR_ENDED = True
-
-  def endAnimation():
-    global INTERNAL_FLAIR_TERMINATE, INTERNAL_FLAIR_ENDED
-    input()
-    INTERNAL_FLAIR_TERMINATE = True
-    return
-  
-  t1 = Thread(target=animateFlair)
-  t2 = Thread(target=endAnimation)
-
-  t1.start()
-  t2.start()
-  t2.join()
-
-  while not INTERNAL_FLAIR_ENDED:
-    pass
+    printC("|{}|>|{}|>|{}|> ".format(*colorsToPrint), end="")
     
-  print("\x1b[A")
+    
+    message = txt
 
+    if i >= messageLen:
+      message = "|B|" + message
+    else:
+      message = "|B|" + message[:i] + "|W|" + message[i] + " " * (messageLen - i - 1)
+
+    printC(message+ " |{}|<|{}|<|{}|<".format(*colorsToPrint[::-1]))
+    
+    print("\x1b[2A")
+    i += 1
+    time.sleep(0.01)
+
+
+  enter()
 
 ####################
 ## NUMBER HELPERS ##

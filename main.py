@@ -87,6 +87,7 @@ def loadSavefile(SAVEFILE_NAME):
 
   SAVEFILE_PLAYER.deaths = db["{}_DEATHS".format(SAVEFILE_NAME)]
   SAVEFILE_PLAYER.missedBuses = db["{}_MISSED_BUSES".format(SAVEFILE_NAME)]
+  SAVEFILE_PLAYER.health = db["{}_HEALTH".format(SAVEFILE_NAME)]
 
   if SAVEFILE_PLAYER.nameColor == "B":
     MAP_SYMBOL_COLORS["◎"] = "PI"
@@ -120,6 +121,7 @@ def updateSavefile():
 
   db["{}_DEATHS".format(SAVEFILE_NAME)] = SAVEFILE_PLAYER.deaths
   db["{}_MISSED_BUSES".format(SAVEFILE_NAME)] = SAVEFILE_PLAYER.missedBuses
+  db["{}_HEALTH".format(SAVEFILE_NAME)] = SAVEFILE_PLAYER.health
 
   if SAVEFILE_PLAYER.nameColor == "B":
     MAP_SYMBOL_COLORS["◎"] = "PI"
@@ -217,6 +219,7 @@ while True:
 
       db["{}_DEATHS".format(name)] = 0
       db["{}_MISSED_BUSES".format(name)] = 0
+      db["{}_HEALTH".format(name)] = 100
       
       db["SAVEFILES"].append(origName)
       
@@ -552,10 +555,10 @@ while True:
         continue
       except:
         updateSavefile()
-        dial("Thanks for playing & completing Act II!")
-        dial("Please report any problems or issues you ran into while playing, and we will try our best to fix them!")
-        dial("A full game release is planned on March 30th.")
-        dial("Thanks for everything <3")
+        dialNoSpeaker("Thanks for playing & completing Act II!")
+        dialNoSpeaker("Please report any problems or issues you ran into while playing, and we will try our best to fix them!")
+        dialNoSpeaker("A full game release is planned on March 30th 2023. |DG|*Haha, like that would have ever happened...*")
+        dialNoSpeaker("Thanks for everything <3")
         break
       
       

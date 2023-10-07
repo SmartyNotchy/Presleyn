@@ -30,12 +30,22 @@ class MapPlayer: # THIS IS THE OVERWORLD PLAYER NOT THE BATTLE PLAYER ok myan
     self.inSchool = True
     self.justPerished = False
     
+    self.health = 100
+    
   def perish(self):
+    self.health = self.getMaxHealth()
     self.deaths += 1
     self.justPerished = True
     self.classroom = NursesOfficeClassroom()
     self.loc = ["MAIN_ENTRANCE", "ENTRANCE_HALLWAY_6"]
-    
+  
+  def getMaxHealth(self):
+    maxHealth = 100
+    for pair in BATTLE_SCROLLS.items():
+      if self.hasItem(pair[0]):
+        maxHealth += pair[1]
+    return maxHealth
+  
   def getName(self):
     return "|" + self.nameColor + "|" + self.name + "|--|"
 
@@ -514,7 +524,6 @@ class MapPlayer: # THIS IS THE OVERWORLD PLAYER NOT THE BATTLE PLAYER ok myan
  ║                                                                                            ║
  ║                                                                                            ║
  ║ |BR|Community Scrolls Found:|B|                                                                   ║
- ║                                                                                            ║
  ║ |DG|?????|B|                                                                                      ║
  ║ |DG|?????|B|                                                                                      ║
  ║ |DG|?????|B|                                                                                      ║
@@ -523,6 +532,7 @@ class MapPlayer: # THIS IS THE OVERWORLD PLAYER NOT THE BATTLE PLAYER ok myan
  ║ |DG|?????|B|                                                                                      ║
  ║ |DG|?????|B|                                                                                      ║
  ║                                                                                            ║
+ ║ |R|Current Health:|B|                                                                            ║
  ║                                                                                            ║
  ╚════════════════════════════════════════════════════════════════════════════════════════════╝''')
       print("\x1b[5;4H", end="")
@@ -580,6 +590,11 @@ class MapPlayer: # THIS IS THE OVERWORLD PLAYER NOT THE BATTLE PLAYER ok myan
         printC("\x1b[3C|BR|⎎ Scroll of Equality     |R|(+100 HP)")
       else:
         print()
+
+
+      print("\x1b[22;4H", end="")
+      printC("|R|Current Health: |PI|{}/{}".format(self.health, self.getMaxHealth()))
+      printC("\x1b[3C|DG|*Outside of battles, you can heal by visiting the nurse.*")
 
 
     pass
