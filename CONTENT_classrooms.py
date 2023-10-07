@@ -614,6 +614,8 @@ class NursesOfficeClassroom(Classroom):
         else:
           toHeal = player.getMaxHealth() - player.health
           price = toHeal // 5 + 20
+          if player.hasFlag("Nurses_PerishDebtUnpaid"):
+            price += 50
           if not player.hasFlag("Nurses_TicketPricing"):
             player.addFlag("Nurses_TicketPricing")
             dial("Nurse", "Alright, I can heal you for |R|{}|B| health.".format(toHeal))
@@ -634,6 +636,9 @@ class NursesOfficeClassroom(Classroom):
               if player.act == 1 and player.questProgressIsAtLeast(IronicCriminalPursuitQuest, 5):
                 dial("Peter", "But all you did was use an ice pack on them...")
               dial("Nurse", "~~Glory to the American Healthcare System-~~ I mean, come again soon!")
+              if player.hasFlag("Nurses_PerishDebtUnpaid"):
+                player.removeFlag("Nurses_PerishDebtUnpaid")
+                dialNoSpeaker("|DG|*The 50 ticket tax on healing has been removed.*")
             else:
               dial("Nurse", "Wow, you're poor.")
               dial("Nurse", "That kind of sucks.")
@@ -1108,6 +1113,7 @@ class Room236AClassroom(Classroom):
         dial("Ms. Ramasamy","Katherine... I can still hear you...")
         dial("Katherine","Sorry...")
         player.incrementQuestProgress(IronicCriminalPursuitQuest)
+        player.sendEmail(NursesOfficeEmail)
       elif player.questProgressIsAt(IronicCriminalPursuitQuest, 2): # Interaction #2 
         if choice == 1:
           dial("Ms. Ramasamy", "Katherine probably isn't going to leave any time soon, is she?")

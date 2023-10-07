@@ -36,6 +36,7 @@ class MapPlayer: # THIS IS THE OVERWORLD PLAYER NOT THE BATTLE PLAYER ok myan
     self.health = self.getMaxHealth()
     self.deaths += 1
     self.justPerished = True
+    self.addFlag("Nurses_PerishDebtUnpaid")
     self.classroom = NursesOfficeClassroom()
     self.loc = ["MAIN_ENTRANCE", "ENTRANCE_HALLWAY_6"]
   

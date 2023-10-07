@@ -16,6 +16,27 @@ will have a "Locked" sign on their door!'''
 
     self.starred = starred
     self.unread = unread
+    
+class NursesOfficeEmail(Email):
+  def __init__(self, starred, unread):
+    self.subject = "Healing Opportunities"
+    self.sender = "The Nurse's Office"
+    self.contents = '''\
+Feeling sick after losing a spell battle?
+Counselors can help with the emotional trauma,
+but for a low, low ticket price, the Nurse's
+Office can dispell any physical injuries you
+might suffer!
+
+Pricing:
+Health Lost / 5 + 20 (Rounded Down)
+Additional 50 ticket tax if healthcare has been
+administered previously without charge.
+'''
+
+    self.starred = starred
+    self.unread = unread
+
 
 class IEDOverdoseEmail(Email):
   def __init__(self, starred, unread):
