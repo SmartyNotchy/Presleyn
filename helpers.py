@@ -449,7 +449,7 @@ def timedHitbar(speedCoeff, zones):
     while INTERNAL_WaitingForHit:
       print("\x1b[{}C V ".format(INTERNAL_HitbarPos), end="\r")
       
-      time.sleep(0.075 / INTERNAL_HitbarSpeed)
+      time.sleep(0.06 / INTERNAL_HitbarSpeed)
 
       if INTERNAL_HitbarDir:
         INTERNAL_HitbarPos += 1
