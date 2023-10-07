@@ -48,7 +48,7 @@ learn about all your favorite topics such as tonal
 shading, 3D modeling in OnSpace, and how to use a dial 
 caliper. Make sure that all your answers on every test 
 are accurate, they don't have to be precise. As a 
-reminder,  whenever there is a big project spanning 
+reminder, whenever there is a big project spanning 
 multiple weeks, make sure to enhance the likelihood of 
 getting a good grade by dressing up your project as a 
 certain member of the Animalia kingdom.
