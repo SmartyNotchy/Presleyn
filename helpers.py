@@ -335,6 +335,7 @@ def printFlair(txt):
     time.sleep(0.01)
 
   print()
+  flush_input()
   enter()
 
 ####################
