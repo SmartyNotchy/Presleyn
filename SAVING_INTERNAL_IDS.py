@@ -140,6 +140,8 @@ INTERNAL_IDS = {
   6011: BaldastanEmail,
   6012: NameChangeEmail,
   6013: NursesOfficeEmail,
+  6014: BrainSTEMOrderEmail,
+  6015: BrainSTEMOrderFollowUpEmail,
   
   7001: ScrollOfSupportItem,
   7002: ScrollOfDiversityItem,
