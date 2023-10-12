@@ -563,7 +563,6 @@ class MapPlayer: # THIS IS THE OVERWORLD PLAYER NOT THE BATTLE PLAYER ok myan
       print()
       print()
       print()
-      print()
       if self.hasItem(ScrollOfSupportItem):
         printC("\x1b[3C|BR|⎎ Scroll of Support      |R|(+20 HP)")
       else:
