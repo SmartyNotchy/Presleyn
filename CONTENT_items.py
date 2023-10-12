@@ -771,6 +771,29 @@ a rich chocolate color.'''
     self.battleUsable = False
     self.quantity = quantity
 
+
+class WoodenFragment(Item):
+  def __init__(self, quantity = 1):
+    self.name = "Wooden Fragment"
+    self.nameColor = "BR"
+    self.rarity = 7
+    self.type = 2
+    self.desc = '''\
+Just because this is a game about magic &
+spells doesn't mean that you can just
+open the Chamber of Secrets whenever you
+want.
+
+Let this fragment serve as a memento for 
+your stupidity.
+
+|DG|(Yay for property damage.)
+'''
+
+    self.battleUsable = False
+    self.quantity = quantity
+
+
 #######################
 ## COMMUNITY SCROLLS ##
 #######################
