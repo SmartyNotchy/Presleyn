@@ -154,15 +154,15 @@ class BrainSTEMOrderEmail(Email):
     self.contents = '''\
 Dear Peter Zhao,
 
-This is your confirmation email that your order to sacrifice 
-the local oprhanage has been received.
+This is your confirmation email that your order to
+sacrifice the local orphanage has been received.
 
 ORDER ID: 17
 STATUS: PENDING
-Please expect further details to be sent out no later than 
-11:59 PM, February 31st, 2023 (EST).
+Please expect further details to be sent out no later
+than 11:59 PM, February 31st, 2023 (EST).
 
-Thank you for working with brainSTEM.
+[Thank you for working with BrainSTEM.]
 '''
 
     self.starred = starred
@@ -175,6 +175,8 @@ class BrainSTEMOrderFollowUpEmail(Email):
     self.contents = '''\
 Oh oops I sent that email to the wrong person.
 Please ignore man, thank you.
+
+[Thank you for working with BrainSTEM.]
 '''
 
     self.starred = starred
