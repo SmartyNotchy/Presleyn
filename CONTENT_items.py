@@ -772,7 +772,7 @@ a rich chocolate color.'''
     self.quantity = quantity
 
 
-class WoodenFragment(Item):
+class WoodenFragmentItem(Item):
   def __init__(self, quantity = 1):
     self.name = "Wooden Fragment"
     self.nameColor = "BR"
