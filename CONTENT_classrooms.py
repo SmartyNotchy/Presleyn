@@ -3769,7 +3769,7 @@ class Room140Classroom(Classroom):
         dialNoSpeaker("Ryan hands Katherine a D20.")
         dial("Ryan","Behold, let this be a whimsical game of chance! Should thou roll a coveted 20, then thou shalt be granted the honor of participating in our enthralling quest. But should thou roll anything else, then I command thou swiftly depart and find thy adventures elsewhere.")
         dial("Katherine","Umm.. sure!")
-        dialNoSpeaker("Katherine rolls the D20... it lands on a 12.")
+        dialNoSpeaker("Katherine rolls the D20... it lands on a {}.".format(random.randint(12, 16)))
         dial("Katherine","*(Sigh)* I'm so unlucky. :(")
         dial("Ryan","It seems the forces of fate have conspired against you. As a consequence, I am left with no choice but to punish thee with a perilous spell battle!")
         dial("Katherine","Uh... no thanks.")
