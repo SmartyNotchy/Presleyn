@@ -486,7 +486,8 @@ RARITIES = {
   3: "|PU|Epic",
   4: "|Y|Legendary",
   5: "|PI|Mythic",
-  6: "|LB|Divine"
+  6: "|LB|Divine",
+  7: "|R|Special"
 }
 
 class ContentError(Exception):
