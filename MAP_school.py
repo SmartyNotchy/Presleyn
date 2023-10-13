@@ -426,15 +426,16 @@ ELECTIVE HALL      +     +    +     +     +     +    +    + .......
     self.playerLastSection = None
 
   def run(self, player, immediatelyQuit = False):
+    iconColor = player.nameColor
+    if player.nameColor == "B":
+      iconColor = "PI"
+    MAP_SYMBOL_COLORS["○"] = iconColor
+
     cursor.hide()
     playerLoc = LOCATIONS[player.loc[1]]
     reprint = True
     if player.loc[0] == self.playerLastSection:
       reprint = False
-
-      iconColor = player.nameColor
-      if player.nameColor == "B":
-        iconColor = "PI"
     
       printC("\x1b[{};{}H|DG|·|B|".format(*getMapPos(self.asciiMaps[player.loc[0]], self.playerLastPos)))
       printC("\x1b[{};{}H|{}|○|B|".format(*getMapPos(self.asciiMaps[player.loc[0]], playerLoc.pos[player.loc[0]]), iconColor))

@@ -771,6 +771,11 @@ a rich chocolate color.'''
     self.battleUsable = False
     self.quantity = quantity
 
+
+    self.battleUsable = False
+    self.quantity = quantity
+
+
 #######################
 ## COMMUNITY SCROLLS ##
 #######################

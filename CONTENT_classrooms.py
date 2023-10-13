@@ -4921,11 +4921,11 @@ class MainGymClassroom(Classroom):
     
   def run(self, player):
     if player.act == 2:        
-      clear()
-      
-      printBoxedText("Main Gym")
+      #clear()
       
       if player.hasItem(GymKeysItem):
+        clear()
+        printBoxedText("Main Gym")
         print()
         printC("You're in the gym, the place where magnet students get panic attacks and faint due to Vitamin D deficiency.")
         choice = dropdownMenu("What do you do?",["Get a paddle from the closet.","Stare at the ceiling.","Leave the gym."])
@@ -4981,12 +4981,13 @@ class DanceStudioClassroom(Classroom):
 
   def run(self, player):
     if player.act == 2:
-        clear()
-    
-        printBoxedText("Dance Studio")
-        print() 
+        
 
         if player.hasFlag("Weight_Int3_EnterDanceStudio"):
+          clear()
+    
+          printBoxedText("Dance Studio")
+          print() 
           printC("You're in the Dance Studio, where all you do is play Table Tennis.")
           print()
           if player.hasFlag("Dance_Int1_UnproppedDoor") == False:
@@ -5051,7 +5052,8 @@ class DanceStudioClassroom(Classroom):
             player.classroom = None
             return
         else:
-          printC("Unfortunately, the door's locked.")
+          print()
+          dialNoSpeaker("Unfortunately, the door's locked.")
           dialNoSpeaker("There seems to be a chair propped up on the other side, if only there was another way in.")
           player.classroom = None
           return
@@ -5114,9 +5116,11 @@ class WeightRoomClassroom(Classroom):
             dial("???","...")
             dial("???","I know this is a game about spells and wands but...")
             dial("???","...")
-            dial("???","What's next? Are you going to put your name in Goblet of Fire? Get married to your best friends sister?Conveniently survive after countless near-death encounters despite everyone around you perishing by interacting with a single blade of grass?")
-            dial("???","*(Cough Cough)* Pilliam Wark.")
-            dial("???","\"um actually it's wingardium leviOsa amirite- *dies from heat exposure*\"")
+            dial("???","What's next? Are you going to put your name in Goblet of Fire?")
+            dial("???", "Get married to your best friends sister?")
+            dial("???", "Conveniently survive after countless near-death encounters despite everyone around you perishing by interacting with a single blade of grass?")
+            dial("???","|DG|*(Cough Cough)* Pilliam Wark.")
+            dial("???","|DG|\"um actually it's wingardium leviOsa amirite- *dies from heat exposure*\"")
             dial("???","...")
           elif choice == 2:
             player.classroom = None
