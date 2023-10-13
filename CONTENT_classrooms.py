@@ -5113,36 +5113,15 @@ class WeightRoomClassroom(Classroom):
           printC("If only there was another way to get in...")
           choice = dropdownMenu("What do you do?",["Open the Chamber of Secrets.","Leave."]) 
           if choice == 1:
-            if not player.hasFlag("Weight_Chamber1"):
-              dial("???","...")
-              dial("???","I know this is a game about spells and wands but...")
-              dial("???","...")
-              dial("???","What's next? Are you going to put your name in Goblet of Fire?")
-              dial("???", "Get married to your best friends sister?")
-              dial("???", "Conveniently survive after countless near-death encounters despite everyone around you perishing by interacting with a single blade of grass?")
-              dial("???","|DG|*(Cough Cough)* Pilliam Wark.")
-              dial("???","|DG|\"um actually it's wingardium leviOsa amirite- *dies from heat exposure*\"")
-              dial("???","...")
-              dial("???","Please go away and don't try again.")
-              player.addFlag("Weight_Chamber1")
-            elif not player.hasFlag("Weight_Chamber2"):
-              dial("???","...")
-              dial("???","What would you even find in the Chamber of Secrets?")
-              dial("???","It's not like there are any people who are petrified down there and in need of saving.")
-              dial("???","...")
-              dial("???","This is a text-based satirical game about Roberto Clemente MS, not some Harry Potter fangame.")
-              dial("???","I'm not really sure what you were expecting.")
-              player.addFlag("Weight_Chamber2")
-            elif not player.hasFlag("Weight_Chamber3"):
-              dialNoSpeaker("Despite the utter stupidity of trying to open the Chamber of Secrets from the door of a locked weight room in a random middle school, you try anyways.")
-              dialNoSpeaker("...")
-              dialNoSpeaker("A small piece of wood chips off the door.")
-              dialNoSpeaker("This was definitely a good use of your time.")
-              player.addFlag("Weight_Chamber3")
-            else:
-              dialNoSpeaker("For some incomprehensible reason, you try again.")
-              dialNoSpeaker("...")
-              dialNoSpeaker("Nothing happens.")
+            dial("???","...")
+            dial("???","I know this is a game about spells and wands but...")
+            dial("???","...")
+            dial("???","What's next? Are you going to put your name in Goblet of Fire?")
+            dial("???", "Get married to your best friends sister?")
+            dial("???", "Conveniently survive after countless near-death encounters despite everyone around you perishing by interacting with a single blade of grass?")
+            dial("???","|DG|*(Cough Cough)* Pilliam Wark.")
+            dial("???","|DG|\"um actually it's wingardium leviOsa amirite- *dies from heat exposure*\"")
+            dial("???","...")
           elif choice == 2:
             player.classroom = None
             return

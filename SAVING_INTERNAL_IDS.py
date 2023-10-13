@@ -120,7 +120,6 @@ INTERNAL_IDS = {
   4005: BlueCrayonItem,
   4006: PurpleCrayonItem,
   4007: BrownCrayonItem,
-  4008: WoodenFragmentItem,
   
   5001: IronicCriminalPursuitQuest,
   5002: OverdueSSLFormsQuest,
