@@ -31,6 +31,8 @@ I'd also like to thank you for advertising succulents, they remind me of my Nati
 "I was expecting a fully working, well developed game.
 This game did not dissapoint [sic] me." - Shriram M. (RCMS Alumni)
 
+"very great game" - Srivatsan G. (RCMS Alumni)
+
 "YAAY" - Brooke Y. (RCMS Alumni)
 
 "oh wow that looks cool lol" - Cailyn F. (non-RCMS Alumni)
