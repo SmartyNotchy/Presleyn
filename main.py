@@ -321,19 +321,20 @@ while True:
         loadSavefile(username)
 
         if SAVEFILE_PLAYER.act >= 3:
-          assert os.environ['REPL_OWNER'] == "Unequip"
-          
+          #assert os.environ['REPL_OWNER'] == "Unequip"
+          assert True
+        if SAVEFILE_PLAYER.act >= 4:
+          assert False
+
         printC("Savefile loaded successfully!", "G")
       
         flush_input()
         enter()
         break
       except:
-        printC("Sorry, something went wrong! Please report the following error message:\n", "R")
-        print()
-        loadSavefile(username)
         printC("Acts III and above are not available for playtesting at this moment. Sorry!", "R")
         printC("If you got this message while attempting to load a non-act III profile, please report this incident.", "R")
+        enter()
         exit(1)
     elif choice == 2:
       printC("\nEnter the new name for this profile: ", "B", end="")
