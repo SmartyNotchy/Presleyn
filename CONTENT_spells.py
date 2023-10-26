@@ -1426,3 +1426,24 @@ class YuliaSpell(Spell):
                       "You get to class 5 minutes late, greatly upsetting the teacher and weakening {} by |BR|17%|--|!",
                       "{} gets to class 5 minutes late, greatly upsetting the teacher and weakening you by |BR|17%|--|!"
                     ], [0.17, 0.15, 0])
+
+
+
+class DebugSpell(Spell):
+  def __init__(self):
+    self.name = "Apotheosis"
+    self.type = "Debug"
+    self.nameColor = "DB"
+    self.castingZones = [0, 0, 10, 0, 0]
+    self.castingSpeed = 2
+    self.desc = "Deals |G|1000000|--| damage."
+    self.lore = "Skill -100, Clout +1000"
+    
+  def cast(self, damageMultiplier, caster, target):
+    quickDamageSpell(damageMultiplier, caster, target, \
+                    [
+                      "a","b","c","d",
+                      "You absolutely annihilate your opponent, dealing |R|%d|--| damage!",
+                      "{} wields too much power, dealing |R|%d|--| damage and eliminating you!"
+                    ], [1000000, 0, 0])
+

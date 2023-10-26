@@ -80,6 +80,7 @@ INTERNAL_IDS = {
   1059: ValeriaSpell(),
   1060: WilliamSpell(),
   1061: YuliaSpell(),
+  1069: DebugSpell(),
   
   2001: StrawberryShakeItem,
   2002: TectonicSnacksItem,
