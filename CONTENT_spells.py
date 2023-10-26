@@ -1343,7 +1343,7 @@ class TylerSpell(Spell):
     self.castingZones = [3, 4, 3, 2, 9]
     self.castingSpeed = 1.25
     self.desc = "Defends for |G|12%|W|/|Y|12%|W|/|R|0%|--|. Caps at |G|35%|--|."
-    self.lore = "You will never be able to see what hides behind that hood..."
+    self.lore = "You'll never see what hides behind that hood..."
     
   def cast(self, damageMultiplier, caster, target):
     quickShieldSpell(damageMultiplier, caster, target, \
