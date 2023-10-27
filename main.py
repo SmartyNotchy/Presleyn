@@ -552,10 +552,11 @@ while True:
       
       printFlair("     Act II Complete     ")
 
+      SAVEFILE_PLAYER.inSchool = False
+      skipGoingToBedText = True
+      
       try:
         assert os.environ['REPL_OWNER'] == "Unequip"
-        SAVEFILE_PLAYER.inSchool = False
-        skipGoingToBedText = True
         continue
       except:
         updateSavefile()
