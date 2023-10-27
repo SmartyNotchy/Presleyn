@@ -1343,7 +1343,7 @@ class TylerSpell(Spell):
     self.castingZones = [3, 4, 3, 2, 9]
     self.castingSpeed = 1.25
     self.desc = "Defends for |G|12%|W|/|Y|12%|W|/|R|0%|--|. Caps at |G|35%|--|."
-    self.lore = "You will never be able to see what hides behind that hood..."
+    self.lore = "You'll never see what hides behind that hood..."
     
   def cast(self, damageMultiplier, caster, target):
     quickShieldSpell(damageMultiplier, caster, target, \
@@ -1426,3 +1426,24 @@ class YuliaSpell(Spell):
                       "You get to class 5 minutes late, greatly upsetting the teacher and weakening {} by |BR|17%|--|!",
                       "{} gets to class 5 minutes late, greatly upsetting the teacher and weakening you by |BR|17%|--|!"
                     ], [0.17, 0.15, 0])
+
+
+
+class DebugSpell(Spell):
+  def __init__(self):
+    self.name = "Apotheosis"
+    self.type = "Debug"
+    self.nameColor = "DB"
+    self.castingZones = [0, 0, 10, 0, 0]
+    self.castingSpeed = 2
+    self.desc = "Deals |G|1000000|--| damage."
+    self.lore = "Skill -100, Clout +1000"
+    
+  def cast(self, damageMultiplier, caster, target):
+    quickDamageSpell(damageMultiplier, caster, target, \
+                    [
+                      "a","b","c","d",
+                      "You absolutely annihilate your opponent, dealing |R|%d|--| damage!",
+                      "{} wields too much power, dealing |R|%d|--| damage and eliminating you!"
+                    ], [1000000, 0, 0])
+

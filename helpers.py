@@ -315,7 +315,7 @@ def printFlair(txt):
   colors = ("R", "Y", "G", "LB", "DB", "PU", "PI", "R", "Y", "G", "LB", "DB", "PU", "PI")
 
   i = 0
-  while i < messageLen:
+  while i < messageLen + 10:
     colorsToPrint = colors[i % 3:i % 3 + 3]
 
     printC("|{}|>|{}|>|{}|> ".format(*colorsToPrint), end="")

@@ -350,8 +350,7 @@ class OutsideMainEntranceClassroom(Classroom):
           dial("Katherine","Pretty much!")
           dialNoSpeaker("The mortals crowd around the door, discussing extensivly on a way to recreate the P.L.A.N.T device using Katherine's engineering prowess.")
           dial("Katherine","Knew that would come in handy!")
-          player.addFlag("Entrance_Int1_KatherineEngineeringMoment")
-        elif not player.hasFlag("Entrance_Int1_KatherineCreatesAPlan"): 
+          dialNoSpeaker("...")
           dialNoSpeaker("You try to include youself in the discussion.")
           dial("Katherine","Everyone understand?")
           dial("Anna","May you recap?")
@@ -387,6 +386,7 @@ class OutsideMainEntranceClassroom(Classroom):
           dial("Katherine","You ready, {}? Peter's counting on us!".format(player.name)) 
           dialNoSpeaker("You nod your head.")
           dial("Katherine","We got this! ^-^") 
+          player.addFlag("Entrance_Int1_KatherineEngineeringMoment")
           player.addFlag("Entrance_Int1_KatherineCreatesAPlan")
           player.loc = ["MAIN_ENTRANCE", "ENTRANCE_HALLWAY_8"]
           player.classroom = None
@@ -402,6 +402,7 @@ class OutsideMainEntranceClassroom(Classroom):
       dialNoSpeaker("The door's locked.")
       dialNoSpeaker("Looks like Ms. Presley fixed the lock on the door to be less breakable.")
       dialNoSpeaker("You'll have to find another way in...")
+      player.incrementTime(-2)
       player.classroom = None
     
 class MainOfficeClassroom(Classroom):
@@ -1234,6 +1235,7 @@ class Room236AClassroom(Classroom):
           dial("Peter","It's Poorvi.")
           dial("Katherine","How could I forget.")
           player.incrementQuestProgress(IronicCriminalPursuitQuest)
+          player.removeItem(MasterKeysItem)
         else:
           dial("Poorvi","Did you find the key yet?")
           dial("Katherine","Yup!")
@@ -1526,8 +1528,8 @@ class Room239Classroom(Classroom):
           dial("Jessika","*(From above)* I mean- I- well-")
           dial("Jessika","*(From above)* *(Sigh)* I'm sorry for nearly killing you.")
           dial("Katherine","That's more like it. :D")
-          dialNoSpeaker("Using the shovel as a leaver, you dislodge the Aloe Vera straight from the ground.")
-          printFlare("You Receive an Aloe Vera Succuent!")
+          dialNoSpeaker("Using the shovel as a lever, you dislodge the Aloe Vera straight from the ground.")
+          printFlair("You Receive an Aloe Vera Succuent!")
           dial("Katherine","Nice work! :)") 
           dial("Jessika","*(From above)* Everything alright down there?")
           dial("Katherine","Yup, the Aloe Vera has been retrieved!")
@@ -2176,7 +2178,7 @@ class Room221Classroom(Classroom):
         # TODO: NATHAN BATTLE
 
         dial("Nathan","bruh.")
-        printFlare("You Receive a Gorilla Glue Adhesive!")
+        printFlair("You Receive a Gorilla Glue Adhesive!")
         dial("Katherine","Take that Nathan! You're gameshow was rigged anyways!")
         dial("Nathan","-_-")
         dialNoSpeaker("Katherine turns to you and Lillian.")
@@ -2554,7 +2556,7 @@ class Room221Classroom(Classroom):
         else:
           player.addFlag("Room221_Lillian_Won_Gameshow")
           dial("Nathan", "Well... congratulations Lillian... I guess...")
-          dial("Nathan", "Why don't you come right up to my desk off-stage to claim your grand prize")
+          dial("Nathan", "Why don't you come right up to my desk off-stage to claim your grand prize?")
           dial("Lillian","Sure thing!")
         player.addFlag("Room221_Played_Gameshow")
   
@@ -2567,7 +2569,7 @@ class Room221Classroom(Classroom):
 class Room220Classroom(Classroom):
   def __init__(self):
     self.name = "Room 220 - The Arcade"
-    self.locked = [1,2]
+    self.locked = [1,2,3]
 
   def run(self, player):
     clear()
@@ -2890,13 +2892,13 @@ class Room220Classroom(Classroom):
     elif choice == 2:
       printC("\n=== OnSpace Mafia ===", "R")
       printC("Cost Type: |G|One-time Purchase", "DG")
-      printC("*Muy Epico*", "DG")
+      printC("*Save the OnSpace Sketch Plane from the evil Trim Tools! No actual rewards.*", "DG")
       print()
 
       if player.hasFlag("Room220_BoughtOnspaceMafia"):
         printC("You have already purchased a ticket to this game!", "G")
       else:
-        printC("It costs 250 tickets to play this game.", "B")
+        printC("It costs 50 tickets to play this game.", "B")
       
       
       choice = dropdownMenu("Play the Game?", ["|G|Yep!", "|R|Nah I'm Good"])
@@ -2905,7 +2907,7 @@ class Room220Classroom(Classroom):
         canPlay = player.hasFlag("Room220_BoughtOnspaceMafia")
         
         if not canPlay:
-          canPlay = player.takeTickets(250)
+          canPlay = player.takeTickets(50)
           if not canPlay:
             dialNoSpeaker("|R|Unfortunately, you don't have enough tickets to play this game.")
           else:
@@ -5244,7 +5246,7 @@ class GreatIndoorsEntranceClassroom(Classroom):
     self.locked = [1]
 
   def run(self, player):
-    if player.hasItem(TeachersPassItem):
+    if player.hasItem(TeachersPassItem):      
       dialNoSpeaker("You use the Teacher's Pass to unlock the door and walk inside.")
       player.loc = ["HALLWAY_GYM", "HALLWAY_GYM_OUTSIDE_EXIT"]
     else:
@@ -5307,7 +5309,7 @@ class BlacktopClassroom(Classroom):
     self.locked = [1]
 
   def run(self, player):
-    if player.act == 2:
+    if player.act == 2 and player.hasItem(TeachersPassItem):
       clear()
   
       printBoxedText("The Blacktop")
@@ -5370,15 +5372,33 @@ class BlacktopClassroom(Classroom):
       elif choice == 2:
         player.classroom = None
         return
-      
+    else:
+      dialNoSpeaker("There's nobody on the blacktop.")
+      dialNoSpeaker("You walk around for a bit...")
+      dialNoSpeaker("...")
+      dialNoSpeaker("... this isn't very fun.")
+      dialNoSpeaker("You leave to do better things with your time.")
+      player.classroom = None
+      return
 
 class GreenhouseClassroom(Classroom):
   def __init__(self):
     self.name = "Greenhouse"
-    self.locked = [1]
+    self.locked = [1, 3]
 
   def run(self, player):
     if player.act == 2:
+      if player.hasItem(GymKeysItem) and player.hasFlag("MainGym_Int1_WhiteSucculent"):
+        dialNoSpeaker("As you try to open the Greenhouse door, you can spot Ms. Gleich sprinting towards you.")
+        dial("Ms. Gleich","What did I say?")
+        dial("Ms. Gleich","You're supposed to return the Gym Keys to me when you've collected that paddle.")
+        dial("Ms. Gleich","Although I have to admit that sneaking out during dismissal was a smart way to try to steal them.")
+        dial("Ms. Gleich","Not smart enough, though.")
+        dialNoSpeaker("Ms. Gleich snaches the Gym Keys straight out of your hands.")
+        dial("Ms. Gleich","Let that be a lesson.")
+        player.removeItem(GymKeysItem)
+        player.incrementQuestProgress(TableTennisQuest)
+    
       clear()
   
       printBoxedText("The Greenhouse")
@@ -5477,6 +5497,7 @@ class GreenhouseClassroom(Classroom):
             
           if succulentsReturned == 0:
             dial("Ellie","No? That's okay, make sure to keep your eye out for them around the school!")
+            return
           else:
             dial("Ellie", "Thanks for the succulents!")
             player.giveTickets(100 * succulentsReturned)

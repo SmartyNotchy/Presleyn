@@ -6,7 +6,7 @@ printC("Presleyn is now in an |W|Acts I-II Demo|B| release!\n", "B")
 printC("Please remember that the game is still in development, and please report any issues you had with playing!\n", "B")
 printC("Thank you so much <3", "B")
 enter()
-printC("Huge shoutout to Ella, Poorvi, and [REDACTED] for letting us use their amphibian arcade game, thanks!")
+#printC("Huge shoutout to Ella, Poorvi, and [REDACTED] for letting us use their amphibian arcade game, thanks!")
 #printC("If the game crashes after this, it's not open to the public yet. Go away!", "R")
 #printC("Although, we still love you for considering to play this early. <3")
 #assert os.environ['REPL_OWNER'] == "Unequip"
@@ -34,9 +34,9 @@ except:
   dial("???", "Hey there!")
   dial("???", "It looks like you're new around here...")
   dial("???", "I was told to advise you to play in |W|Fullscreen Mode|B| and |W|on a computer/device with a keyboard|B| to maximize enjoyment.")
-  dial("???","UNLIKE A CERTAIN KATHERINE XU!")
   dial("???", "Got that?")
-  dial("???", "Okay, good luck!")
+  dial("???", "Great! Oh, and don't mind me. I'm just your friendly neighborhood triple question mark set.")
+  dial("???", "Good luck on your adventures!")
   clear()
   
   db["SAVEFILES"] = []
@@ -321,19 +321,20 @@ while True:
         loadSavefile(username)
 
         if SAVEFILE_PLAYER.act >= 3:
-          assert os.environ['REPL_OWNER'] == "Unequip"
-          
+          #assert os.environ['REPL_OWNER'] == "Unequip"
+          assert True
+        if SAVEFILE_PLAYER.act >= 4:
+          assert False
+
         printC("Savefile loaded successfully!", "G")
       
         flush_input()
         enter()
         break
       except:
-        printC("Sorry, something went wrong! Please report the following error message:\n", "R")
-        print()
-        loadSavefile(username)
         printC("Acts III and above are not available for playtesting at this moment. Sorry!", "R")
         printC("If you got this message while attempting to load a non-act III profile, please report this incident.", "R")
+        enter()
         exit(1)
     elif choice == 2:
       printC("\nEnter the new name for this profile: ", "B", end="")
@@ -414,6 +415,9 @@ print()
 exit(1)
 #'''
 
+# Give Debug Spell
+# SAVEFILE_PLAYER.giveSpell(DebugSpell)
+
 SCHOOL_MAP = SchoolMap()
 
 
@@ -423,6 +427,19 @@ skipGoingToBedText = False
 
 while True:
   lastCheckedAct = SAVEFILE_PLAYER.act
+  if lastCheckedAct >= 3:
+    clear()
+    printC("=== Demo Complete! ===", "B")
+    print()
+    printC("Congratulations on completing Act II of the Presleyn Demo!", "B")
+    printC("Akash, Arjun, and I thank you from the bottom of our hearts for taking the time to play our nifty little 8th grade computer science project.", "B")
+    printC("We sincerely hope you enjoyed! I know I had a blast writing the code for this project.", "B")
+    printC("A release date for |W|Act III|B| is planned for anywhere from right now to the heat death of the universe.", "B")
+    printC("See you there!", "B")
+    print()
+    printC("*Oh, and if you're an RCMS Alumni, thanks for all the memories. Cheers to an unforgettable three years! |PI|<3|DG|*", "DG")
+    enter()
+    break
 
   if not alertedDismissalYet and SAVEFILE_PLAYER.timePast(420):
     dialNoSpeaker("|R|The bell chimes for dismissal!")
@@ -487,6 +504,16 @@ while True:
     # Can't time-out in these areas
     if SAVEFILE_PLAYER.loc[0] in ["PROLOGUE_AREA", "OUTSIDE_ENTRANCE", "CARPOOL_LANE"]:
       SAVEFILE_PLAYER.time = 0
+    
+    # Act III, force main act entrance
+    if lastCheckedAct == 3 and SAVEFILE_PLAYER.loc[1] == "OUTSIDE_SCHOOL_SIDEWALK_6" and not SAVEFILE_PLAYER.hasFlag("Entrance_Int1_KatherineEngineeringMoment"):
+      dial("???", "*Pssst*, it looks like there's a group of people at the main school entrance.")
+      dial("???", "I know it's super easy to just use the Teacher's Pass to enter the school from the other side, but...")
+      dial("???", "I dunno, it looks like something important is happening over there.")
+      dial("???", "You should go check it out!")
+      SAVEFILE_PLAYER.loc[1] = "OUTSIDE_SCHOOL_SIDEWALK_5"
+      SCHOOL_MAP.playerLastSection = None
+      continue
 
   # Act Complete
   if SAVEFILE_PLAYER.act != lastCheckedAct:
@@ -548,19 +575,10 @@ while True:
       
       printFlair("     Act II Complete     ")
 
-      try:
-        assert os.environ['REPL_OWNER'] == "Unequip"
-        SAVEFILE_PLAYER.inSchool = False
-        skipGoingToBedText = True
-        continue
-      except:
-        updateSavefile()
-        dialNoSpeaker("Thanks for playing & completing Act II!")
-        dialNoSpeaker("Please report any problems or issues you ran into while playing, and we will try our best to fix them!")
-        dialNoSpeaker("A full game release is planned on March 30th 2023. |DG|*Haha, like that would have ever happened...*")
-        dialNoSpeaker("Thanks for everything <3")
-        break
-      
+      SAVEFILE_PLAYER.inSchool = False
+      skipGoingToBedText = True
+      updateSavefile()
+      continue
       
   # Missed Bus
   if SAVEFILE_PLAYER.timePast(510):
