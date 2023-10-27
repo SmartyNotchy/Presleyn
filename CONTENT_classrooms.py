@@ -2444,7 +2444,7 @@ class Room221Classroom(Classroom):
         printC("Question 8 Scoring: 5 Points")
         choice = dropdownMenu("What is Nathan's favorite color?", ["Red", "Blue", "Yellow", "Green"]) 
         dialNoSpeaker("You lock your answer into the device.")
-        dial("Nathan", "The correct answer was |W|{}|B|!".format(["Red", "Blue", "Yellow", "Green"][choice-1]))
+        dial("Nathan", "The correct answer was |W|{}|B|!".format(["Red", "Blue", "Yellow", "Green"][choice-2]))
         dial("Nathan","Only one person got this question right...")
         dial("Lillian","Seriously |Y|Nathan|B|, did you expect any of us to know this?")
         dial("Nathan","Well, tell that to the person who got it correct...")
