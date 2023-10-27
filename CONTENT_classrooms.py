@@ -350,8 +350,7 @@ class OutsideMainEntranceClassroom(Classroom):
           dial("Katherine","Pretty much!")
           dialNoSpeaker("The mortals crowd around the door, discussing extensivly on a way to recreate the P.L.A.N.T device using Katherine's engineering prowess.")
           dial("Katherine","Knew that would come in handy!")
-          player.addFlag("Entrance_Int1_KatherineEngineeringMoment")
-        elif not player.hasFlag("Entrance_Int1_KatherineCreatesAPlan"): 
+          dialNoSpeaker("...")
           dialNoSpeaker("You try to include youself in the discussion.")
           dial("Katherine","Everyone understand?")
           dial("Anna","May you recap?")
@@ -387,6 +386,7 @@ class OutsideMainEntranceClassroom(Classroom):
           dial("Katherine","You ready, {}? Peter's counting on us!".format(player.name)) 
           dialNoSpeaker("You nod your head.")
           dial("Katherine","We got this! ^-^") 
+          player.addFlag("Entrance_Int1_KatherineEngineeringMoment")
           player.addFlag("Entrance_Int1_KatherineCreatesAPlan")
           player.loc = ["MAIN_ENTRANCE", "ENTRANCE_HALLWAY_8"]
           player.classroom = None
@@ -5246,7 +5246,7 @@ class GreatIndoorsEntranceClassroom(Classroom):
     self.locked = [1]
 
   def run(self, player):
-    if player.hasItem(TeachersPassItem):
+    if player.hasItem(TeachersPassItem):      
       dialNoSpeaker("You use the Teacher's Pass to unlock the door and walk inside.")
       player.loc = ["HALLWAY_GYM", "HALLWAY_GYM_OUTSIDE_EXIT"]
     else:
