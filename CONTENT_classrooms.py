@@ -2425,7 +2425,7 @@ class Room221Classroom(Classroom):
         printC("Question 7 Scoring: 3 Points")
         choice = dropdownMenu("Find the first syntax error in this program:\n\n1    a = 1\n2    b = a\n3    print('100' '200')\n4    b =+ a\n5    a < b > c\n6    a && b", ["Line 3", "Line 4", "Line 5", "Line 6"])
         dialNoSpeaker("You lock your answer into the device.")
-        dial("Nathan", "The correct answer was |W|SchoolDucc|B|!")
+        dial("Nathan", "The correct answer was |W|Line 6|B|!")
         dial("Katherine","Yes! I got it correct by guessing!")
         dial("Nathan","*(Sigh)* Khang, how are you getting all of these wrong?")
         dial("Khang","I have... no idea what any of this means.")
