@@ -415,6 +415,9 @@ print()
 exit(1)
 #'''
 
+# Give Debug Spell
+# SAVEFILE_PLAYER.giveSpell(DebugSpell)
+
 SCHOOL_MAP = SchoolMap()
 
 
