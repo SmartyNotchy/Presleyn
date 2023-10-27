@@ -402,6 +402,7 @@ class OutsideMainEntranceClassroom(Classroom):
       dialNoSpeaker("The door's locked.")
       dialNoSpeaker("Looks like Ms. Presley fixed the lock on the door to be less breakable.")
       dialNoSpeaker("You'll have to find another way in...")
+      player.incrementTime(-2)
       player.classroom = None
     
 class MainOfficeClassroom(Classroom):
