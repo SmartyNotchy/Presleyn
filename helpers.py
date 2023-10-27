@@ -186,7 +186,7 @@ def printC(txt, base_col = "DG", end = "\n", ignore_colors = False):
 def clear():
   #print("\x1b[2J\x1b[1;1H", end="")
   os.system("cls")
-  printC("Presleyn Demo - Acts I & II Playtesting Build (Windows Edition)")
+  printC("Presleyn Demo v1.1.3 (Windows Edition)")
 
 def clearArea(lines, offset, amount):
   for i in range(lines):
