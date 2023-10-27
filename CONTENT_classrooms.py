@@ -2163,8 +2163,8 @@ class Room221Classroom(Classroom):
         dial("Khang","...")
         dial("Khang","*(Sigh)* If you really want a spell battle, you could've just asked...")
 
-        if not runBattle(player, KhangBattleStudent()):
-          return
+        #if not runBattle(player, KhangBattleStudent()):
+        #  return
         # TODO: Implement
         # BTW How much health do Act III students have
         dial("Khang","...")
