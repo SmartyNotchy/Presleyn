@@ -408,7 +408,7 @@ class OutsideMainEntranceClassroom(Classroom):
 class MainOfficeClassroom(Classroom):
   def __init__(self):
     self.name = "The Main Office"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3]
     
 class CafeteriaClassroom(Classroom):
   def __init__(self):
@@ -638,17 +638,17 @@ class NursesOfficeClassroom(Classroom):
 class Room251Classroom(Classroom):
   def __init__(self):
     self.name = "Room 251"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room252Classroom(Classroom):
   def __init__(self):
     self.name = "Room 252"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room248Classroom(Classroom):
   def __init__(self):
     self.name = "Room 248" 
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room241Classroom(Classroom):
   def __init__(self):
@@ -704,17 +704,17 @@ class Room241Classroom(Classroom):
 class Room242Classroom(Classroom):
   def __init__(self):
     self.name = "Room 242 - Rock Band"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room246Classroom(Classroom):
   def __init__(self):
     self.name = "Room 246 - Mr. Rea, Band & Orchestra"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class BuildingServicesClassroom(Classroom):
   def __init__(self):
     self.name = "Building Services Closet"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room235Classroom(Classroom):
   def __init__(self):
@@ -1364,22 +1364,22 @@ class Room236AClassroom(Classroom):
 class Room236BClassroom(Classroom):
   def __init__(self):
     self.name = "Room 236B"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room236CClassroom(Classroom):
   def __init__(self):
     self.name = "Room 236C"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room237AClassroom(Classroom):
   def __init__(self):
     self.name = "Room 237A"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room237BClassroom(Classroom):
   def __init__(self):
     self.name = "Room 237B"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room239Classroom(Classroom):
   def __init__(self):
@@ -1635,22 +1635,22 @@ class Room240Classroom(Classroom):
 class Room234Classroom(Classroom):
   def __init__(self):
     self.name = "Room 234"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room238Classroom(Classroom):
   def __init__(self):
     self.name = "Room 238"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room232Classroom(Classroom):
   def __init__(self):
     self.name = "Room 232"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room230Classroom(Classroom):
   def __init__(self):
     self.name = "Room 230"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class MediaCenterClassroom(Classroom):
   def __init__(self):
@@ -1996,7 +1996,7 @@ class ElevatorClassroom(Classroom):
 class Room225Classroom(Classroom):
   def __init__(self):
     self.name = "Room 225"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room224Classroom(Classroom):
   def __init__(self):
@@ -2097,7 +2097,7 @@ class Room224Classroom(Classroom):
 class Room222Classroom(Classroom):
   def __init__(self):
     self.name = "Room 222"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room221Classroom(Classroom):
   def __init__(self):
@@ -3294,37 +3294,37 @@ class Room220Classroom(Classroom):
 class Room219Classroom(Classroom):
   def __init__(self):
     self.name = "Room 219"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room218Classroom(Classroom):
   def __init__(self):
     self.name = "Room 218"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room217Classroom(Classroom):
   def __init__(self):
     self.name = "Room 217"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room216Classroom(Classroom):
   def __init__(self):
     self.name = "Room 216"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room213Classroom(Classroom):
   def __init__(self):
     self.name = "Room 213"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room212Classroom(Classroom):
   def __init__(self):
     self.name = "Room 212"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room211Classroom(Classroom):
   def __init__(self):
     self.name = "Room 211"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 
 class Room128Classroom(Classroom):
@@ -3664,12 +3664,12 @@ class ShriramsShadySalesClassroom(Classroom):
 class Room129Classroom(Classroom):
   def __init__(self):
     self.name = "Room 129"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room130Classroom(Classroom):
   def __init__(self):
     self.name = "Room 130"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room131Classroom(Classroom):
   def __init__(self):
@@ -3731,12 +3731,12 @@ class Room131Classroom(Classroom):
 class Room136Classroom(Classroom):
   def __init__(self):
     self.name = "Room 136"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room137Classroom(Classroom):
   def __init__(self):
     self.name = "Room 137"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room140Classroom(Classroom):
   def __init__(self):
@@ -3969,67 +3969,67 @@ class Room143Classroom(Classroom):
 class Room145Classroom(Classroom):
   def __init__(self):
     self.name = "Room 145"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room146Classroom(Classroom):
   def __init__(self):
     self.name = "Room 146"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room147Classroom(Classroom):
   def __init__(self):
     self.name = "Room 147"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room148Classroom(Classroom):
   def __init__(self):
     self.name = "Room 148 - Mr. Kepler, English"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room149Classroom(Classroom):
   def __init__(self):
     self.name = "Room 149"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room150Classroom(Classroom):
   def __init__(self):
     self.name = "Room 150"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room154Classroom(Classroom):
   def __init__(self):
     self.name = "Room 154 - Ms. MacDonald, History"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room155Classroom(Classroom):
   def __init__(self):
     self.name = "Room 155"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room156Classroom(Classroom):
   def __init__(self):
     self.name = "Room 156"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room126Classroom(Classroom):
   def __init__(self):
     self.name = "Room 126"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room125Classroom(Classroom):
   def __init__(self):
     self.name = "Room 125"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room124Classroom(Classroom):
   def __init__(self):
     self.name = "Room 124"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room122Classroom(Classroom):
   def __init__(self):
     self.name = "Room 122"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room121Classroom(Classroom):
   def __init__(self):
@@ -4207,12 +4207,12 @@ class Room120Classroom(Classroom):
 class Room119Classroom(Classroom):
   def __init__(self):
     self.name = "Room 119"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room118Classroom(Classroom):
   def __init__(self):
     self.name = "Room 118"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room117Classroom(Classroom):
   def __init__(self):
@@ -4412,7 +4412,7 @@ class Room117Classroom(Classroom):
 class Room116Classroom(Classroom):
   def __init__(self):
     self.name = "Room 116"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room113Classroom(Classroom):
   def __init__(self):
@@ -4658,7 +4658,7 @@ class Room113Classroom(Classroom):
 class Room112Classroom(Classroom):
   def __init__(self):
     self.name = "Room 112"
-    self.locked = [1, 2]
+    self.locked = [1, 2, 3, 4, 5]
 
 class Room111Classroom(Classroom):
   def __init__(self):
