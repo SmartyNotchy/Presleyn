@@ -458,8 +458,8 @@ class TableTennisPaddleItem(Item):
     self.rarity = 2
     self.type = 1
     self.desc = '''\
-As you wield this racket, you feel the power of Jerry Wong's
-table tennis expertise caress through your vains.'''
+As you wield this racket, you feel the power of Jerry
+Wong's table tennis expertise course through your veins.'''
     self.battleUsable = False
 
     self.quantity = quantity
