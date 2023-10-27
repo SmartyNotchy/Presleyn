@@ -5497,6 +5497,7 @@ class GreenhouseClassroom(Classroom):
             
           if succulentsReturned == 0:
             dial("Ellie","No? That's okay, make sure to keep your eye out for them around the school!")
+            return
           else:
             dial("Ellie", "Thanks for the succulents!")
             player.giveTickets(100 * succulentsReturned)
