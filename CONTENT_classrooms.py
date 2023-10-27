@@ -2547,7 +2547,7 @@ class Room221Classroom(Classroom):
         dial("Nathan","...")
   
         scores_sorted = sorted(scores.items(), key = lambda x : x[1])
-        winner = scores_sorted[3][0][1]
+        winner = scores_sorted[3][0]
         if winner[1] == player.name and winner[0] == player.nameColor:
           player.addFlag("Room221_Player_Won_Gameshow")
           dial("Nathan", "Well... congratulations {}... I guess...".format(player.getName()))
