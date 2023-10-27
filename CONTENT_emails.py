@@ -203,10 +203,10 @@ class WantedCriminalEmail(Email):
     self.sender = "Erin Presley"
     self.contents = '''\
 If you have any insight on a certain individual that
-goes by the name of 'Jerry Wong', please contact me or any
-team leader. They've been on the loose for tax evasion by
-avoiding paying SGA funds to license songs from the 
-Korean Boyband, BTS, during the school dance.
+goes by the name of 'Jerry Wong', please contact me or
+any team leader. They've been on the loose for tax
+evasion by avoiding paying SGA funds to license songs
+from the Korean Boyband, BTS, during the school dance.
 '''
 
     self.starred = starred
