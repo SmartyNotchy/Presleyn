@@ -38,4 +38,4 @@ This game did not dissapoint [sic] me." - Shriram M. (RCMS Alumni)
 "oh wow that looks cool lol" - Cailyn F. (non-RCMS Alumni)
 
 # Downloads
-Download the latest release here: https://github.com/SmartyNotchy/Presleyn/releases/tag/v1.1.2
+Download the latest release here: https://github.com/SmartyNotchy/Presleyn/releases/tag/latest
