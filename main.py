@@ -426,23 +426,7 @@ alertedDismissalYet = False
 skipGoingToBedText = False
 
 while True:
-  lastCheckedAct = SAVEFILE_PLAYER.act
-  if SAVEFILE_PLAYER.loc[1] == "OUTSIDE_SCHOOL_SIDEWALK_5":
-    if lastCheckedAct == 0:
-      dial("???", "What are you? An infant?")
-      dial("???", "You seem like the kind of individual who needs to be regularly strapped onto a breath monitor...")
-      dial("???", "...since, clearly, your brain isn’t receiving any of the oxygen you’re inhaling.")
-      dial("???", "Just navigate to the school's entrance, please.")
-      SAVEFILE_PLAYER.loc = ["OUTSIDE_ENTRANCE", "OUTSIDE_SCHOOL_SIDEWALK_4"]
-      continue
-    elif lastCheckedAct == 3 and not SAVEFILE_PLAYER.hasFlag("Entrance_Int1_KatherineEngineeringMoment"):
-      dial("???", "Hey, it looks like there's a group of people at the main school entrance.")
-      dial("???", "I know it's super easy to just use the Teacher's Pass to enter the school from the other side, but...")
-      dial("???", "I dunno, it looks like something important is happening over there.")
-      dial("???", "You should go check it out!")
-      SAVEFILE_PLAYER.loc = ["OUTSIDE_ENTRANCE", "OUTSIDE_SCHOOL_SIDEWALK_4"]
-      continue
-
+  lastCheckedAct = SAVEFILE_PLAYER.act  
   if not alertedDismissalYet and SAVEFILE_PLAYER.timePast(420):
     dialNoSpeaker("|R|The bell chimes for dismissal!")
     dialNoSpeaker("Bus 2992 has pulled into the bus lane and is ready to leave.")
@@ -506,6 +490,16 @@ while True:
     # Can't time-out in these areas
     if SAVEFILE_PLAYER.loc[0] in ["PROLOGUE_AREA", "OUTSIDE_ENTRANCE", "CARPOOL_LANE"]:
       SAVEFILE_PLAYER.time = 0
+    
+    # Act III, force main act entrance
+    if lastCheckedAct == 3 and SAVEFILE_PLAYER.loc[1] == "OUTSIDE_SCHOOL_SIDEWALK_6" and not SAVEFILE_PLAYER.hasFlag("Entrance_Int1_KatherineEngineeringMoment"):
+      dial("???", "*Pssst*, it looks like there's a group of people at the main school entrance.")
+      dial("???", "I know it's super easy to just use the Teacher's Pass to enter the school from the other side, but...")
+      dial("???", "I dunno, it looks like something important is happening over there.")
+      dial("???", "You should go check it out!")
+      SAVEFILE_PLAYER.loc[1] = "OUTSIDE_SCHOOL_SIDEWALK_5"
+      SCHOOL_MAP.playerLastSection = None
+      continue
 
   # Act Complete
   if SAVEFILE_PLAYER.act != lastCheckedAct:
@@ -569,18 +563,8 @@ while True:
 
       SAVEFILE_PLAYER.inSchool = False
       skipGoingToBedText = True
-      
-      try:
-        assert os.environ['REPL_OWNER'] == "Unequip"
-        continue
-      except:
-        updateSavefile()
-        dialNoSpeaker("Thanks for playing & completing Act II!")
-        dialNoSpeaker("Please report any problems or issues you ran into while playing, and we will try our best to fix them!")
-        dialNoSpeaker("A full game release is planned on March 30th 2023. |DG|*Haha, like that would have ever happened...*")
-        dialNoSpeaker("Thanks for everything <3")
-        break
-      
+      updateSavefile()
+      continue
       
   # Missed Bus
   if SAVEFILE_PLAYER.timePast(510):
