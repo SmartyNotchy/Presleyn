@@ -6,7 +6,7 @@ printC("Presleyn is now in an |W|Acts I-II Demo|B| release!\n", "B")
 printC("Please remember that the game is still in development, and please report any issues you had with playing!\n", "B")
 printC("Thank you so much <3", "B")
 enter()
-printC("Huge shoutout to Ella, Poorvi, and [REDACTED] for letting us use their amphibian arcade game, thanks!")
+#printC("Huge shoutout to Ella, Poorvi, and [REDACTED] for letting us use their amphibian arcade game, thanks!")
 #printC("If the game crashes after this, it's not open to the public yet. Go away!", "R")
 #printC("Although, we still love you for considering to play this early. <3")
 #assert os.environ['REPL_OWNER'] == "Unequip"
@@ -34,9 +34,9 @@ except:
   dial("???", "Hey there!")
   dial("???", "It looks like you're new around here...")
   dial("???", "I was told to advise you to play in |W|Fullscreen Mode|B| and |W|on a computer/device with a keyboard|B| to maximize enjoyment.")
-  dial("???","UNLIKE A CERTAIN KATHERINE XU!")
   dial("???", "Got that?")
-  dial("???", "Okay, good luck!")
+  dial("???", "Great! Oh, and don't mind me. I'm just your friendly neighborhood triple question mark set.")
+  dial("???", "Good luck on your adventures!")
   clear()
   
   db["SAVEFILES"] = []
