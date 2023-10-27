@@ -329,8 +329,8 @@ class BrandonTSpell(Spell):
                       "{} makes a joke, but no one laughs...", 
                       "no mid, if you see this ignore it",
                       "no mid, if you see this ignore it", 
-                      "You make a joke and everyone laughs, nullifying {} by |DG|20%|--|!",
-                      "{} makes a joke and everyone laughs, nullifying you by |DG|20%|--|!"
+                      "You make a joke and everyone laughs, nullifying {}'s shield by |DG|20%|--|!",
+                      "{} makes a joke and everyone laughs, nullifying your shield by |DG|20%|--|!"
                     ], [0.20, 0, 0])
 
 class BrandonVSpell(Spell):
@@ -435,10 +435,10 @@ class ChaseSpell(Spell):
                     [
                       "You screech your lungs out, but it is not powerful enough...",
                       "{} screeches their lungs out, but it is not powerful enough...", 
-                      "You screech as loud as you can, and you get some nasty looks from others. You weaken {} by |BR|20%|--|!",
-                      "{} screeches as loud as they can, and they get some nastly looks from others. They weaken you by |BR|2-%|--|!", 
-                      "You screech to your fullest, and it instantly ruptures the eardrums of everyone in a 10-mile radius! You weaken {} by |BR|27%|--|!",
-                      "{} screeches to their fullest, and it instantly ruptures the eardrums of everyone in a 10-mile radius! They weaken you by |BR|27%|--|!"
+                      "You screech as loud as you can, and you get some nasty looks from others, weakening {} by |BR|20%|--|!",
+                      "{} screeches as loud as they can, and they get some nastly looks from others, weakening you by |BR|20%|--|!", 
+                      "You screech to your fullest, and it instantly ruptures the eardrums of everyone in a 10-mile radius, weakening {} by |BR|27%|--|!",
+                      "{} screeches to their fullest, and it instantly ruptures the eardrums of everyone in a 10-mile radius, weakening you by |BR|27%|--|!"
                     ], [0.27, 0.20, 0])
 
 class ChrisSpell(Spell):
@@ -484,10 +484,10 @@ class DanielSpell(Spell):
                     [
                       "You throw some Chromebook keyboard keys at {}, but it barely does anything...",
                       "{} throws some Chromebook keyboard keys at you, but it barely does anything...", 
-                      "You throw a Chromebook stylus at {}, and it makes some decent scratches. You weaken {} by |BR|15%|--|!",
-                      "{} throws a Chromebook stylus at you, and it makes some decent scratches. They weaken you by |BR|15%|--|!", 
-                      "You throw an entire Chromebook at {}, and it brings them to the floor! You weaken {} by |BR|30%|--|!",
-                      "{} throws an entire Chromebook at you, and it brings you to the floor! They weaken you by |BR|30%|--|!"
+                      "You throw a Chromebook stylus at {}, and it makes some decent scratches, weakening {} by |BR|15%|--|!",
+                      "{} throws a Chromebook stylus at you, and it makes some decent scratches, weakening you by |BR|15%|--|!", 
+                      "You throw an entire Chromebook at {}, and it brings them to the floor, weakening {} by |BR|30%|--|!",
+                      "{} throws an entire Chromebook at you, and it brings you to the floor, weakening you by |BR|30%|--|!"
                     ], [0.30, 0.15, 0])
 
 class DashaSpell(Spell):
@@ -718,10 +718,10 @@ class JashleeSpell(Spell):
                     [
                       "But, you have to draw 4...",
                       "But, {} has to draw 4...", 
-                      "You put down an Uno Reverse, but they reverse back, weakening {} by |BR|15%|--|!",
-                      "{} puts down an Uno Reverse, but they reverse back, weakening you by |BR|15%|--|!", 
-                      "You put down an Uno Reverse, and save yourself from a +4, weakening {} by |BR|30%|--|!",
-                      "{} puts down an Uno Reverse, and saves themselves from a +4, weakening you by |BR|30%|--|!"
+                      "You put down an Uno Reverse, but they reverse back, only nullifying {}'s shield by |BR|15%|--|!",
+                      "{} puts down an Uno Reverse, but you reverse back, only nullifying your shield by |BR|15%|--|!", 
+                      "You put down an Uno Reverse and save yourself from a +4, nullifying {}'s shield by |BR|30%|--|!",
+                      "{} puts down an Uno Reverse and saves themselves from a +4, weakening your shield by |BR|30%|--|!"
                     ], [0.30, 0.15, 0])
 
 class JessikaSpell(Spell):
@@ -954,10 +954,10 @@ class NathanSpell(Spell):
                     [
                       "But, your nuts were not strong enough to threaten {}...",
                       "But, {}'s nuts were not strong enough to threaten you...",
-                      "Your nuts had some good substance in them, healing you by |PI|%d|--|!",
-                      "{}'s nuts had some good substance in them, healing them by |PI|%d|--|!",
-                      "Your nuts were the best snack in the land, healing you by |PI|%d|--|!",
-                      "{}'s nuts were the best snack in the land, healing them by |PI|%d|--|! "
+                      "Your nuts had some good substance in them, healing you for |PI|%d|--| health!",
+                      "{}'s nuts had some good substance in them, healing them for |PI|%d|--| health!",
+                      "Your nuts were the best snack in the land, healing you for |PI|%d|--| health!",
+                      "{}'s nuts were the best snack in the land, healing them for |PI|%d|--| health! "
                     ], [40, 22, 0])
 
 class OmkarSpell(Spell):
@@ -1207,10 +1207,10 @@ class SergiSpell(Spell):
                     [
                       "But, your wig falls off...",
                       "But, {}'s wig falls off...",
-                      "You get your wig, but it's of poor quality, defending you by |G|12%|--|!",
-                      "{} gets their wig, but it's of poor quality, defending themselves by |G|12%|--|!",
-                      "You get your wig, and it's of great quality, defending yourself by |G|24%|--|!",
-                      "{} gets their wig, and it's of great quality, defending themselves by |G|24%|--|!"
+                      "You get your wig, but it's of poor quality, only defending you for |G|12%|--|!",
+                      "{} gets their wig, but it's of poor quality, only defending themselves for |G|12%|--|!",
+                      "You get your wig, and it's of great quality, defending yourself for |G|24%|--|!",
+                      "{} gets their wig, and it's of great quality, defending themselves for |G|24%|--|!"
                     ], [0.24, 0.12, 0], 0.37)
 
 class ShameerSpell(Spell):
@@ -1328,10 +1328,10 @@ class TerenceSpell(Spell):
                     [
                       "But, {} doesn't fall for your tricks...",
                       "But, you don't fall for {}'s tricks...'",
-                      "You can keep up the charade, but {} is becoming suspicious of you, defending yourself by |G|15%|--|!",
-                      "{} can keep up the charade, but you are becoming suspicious of them, defending themselves by |G|15%|--|!",
-                      "You are a master at work, fooling everyone and defending yourself by |G|18%|--|!",
-                      "{} is a master at work, fooling everyone and defending themselves by |G|18%|--|!"
+                      "You can keep up the charade, but you're a bit suspicious, only defending yourself for |G|15%|--|!",
+                      "{} can keep up the charade, but they're a bit suspicious, only defending themselves for |G|15%|--|!",
+                      "You are a master at work, fooling everyone and defending yourself for |G|18%|--|!",
+                      "{} is a master at work, fooling everyone and defending themselves for |G|18%|--|!"
                     ], [0.18, 0.15, 0], 0.42)
 
 class TylerSpell(Spell):
