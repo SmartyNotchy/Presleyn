@@ -100,46 +100,6 @@ class RubyWand(Wand):
                     "|B|The |R|Ruby Wand|B| gives {} a healing aura for |R|5|B| health!",\
                      caster, enemy)
 
-class EmeraldWand(Wand):
-  def __init__(self):
-    self.name = "Emerald Wand"
-    self.nameColor = "LG"
-    
-    self.startDesc = "|DG|None"
-    self.passiveDesc = "|LG|Defends for 5% per spell cast (50% Cap)"
-    
-    self.lore = "Straight out of the Emerald City"
-
-  def cast(self, spell, caster, enemy):
-    res = None
-    if caster.isPlayer:
-      res = timedHitbar(spell.castingSpeed, spell.castingZones)
-    else:
-      res = random.randint(0, sum(spell.castingZones))
-
-    printCastMessage("|B|You cast %s with your |LG|Emerald Wand|B|!" % spell.getName(),\
-                     "|B|{} casts %s with their |LG|Emerald Wand|B|!" % spell.getName(), caster, enemy)
-
-    res = getZone(res, spell.castingZones)
-    spell.cast([res, caster.boost], caster, enemy)
-
-    caster.castShield(0.05, 1.5)
-    printCastMessage("|B|The |LG|Emerald Wand|B| gives you a defensive aura, defending for |G|5%|B|!",\
-                    "|B|The |LG|Emerald Wand|B| gives {} a defensive aura, defending for |G|5%|B|!",\
-                     caster, enemy)
-
-  def exactCast(self, spell, caster, enemy, zone):
-    printCastMessage("|B|You cast %s with your |LG|Emerald Wand|B|!" % spell.getName(),\
-                     "|B|{} casts %s with their |LG|Emerald Wand|B|!" % spell.getName(), caster, enemy)
-
-    spell.cast([zone, caster.boost], caster, enemy)
-    caster.castShield(0.05, 1.5)
-    
-    printCastMessage("|B|The |LG|Emerald Wand|B| gives you a defensive aura, defending for |G|5%|B|!",\
-                    "|B|The |LG|Emerald Wand|B| gives {} a defensive aura, defending for |G|5%|B|!",\
-                     caster, enemy)
-    
-
 
 class AmethystWand(Wand):
   def __init__(self):
@@ -180,6 +140,92 @@ class AmethystWand(Wand):
                     "|B|The |PU|Amethyst Wand|B| gives {} an energizing aura, boosting them for |Y|10%|B|!",\
                      caster, enemy)
 
+
+
+class OpalWand(Wand):
+  def __init__(self):
+    self.name = "Opal Wand"
+    self.nameColor = "LB"
+
+    self.startDesc = "|DG|None"
+    self.passiveDesc = "|LB|Upon cast, negative boosts/shields will reset to 0%."
+
+    self.lore = "It's so pure, it feels wrong to handle it without gloves..."
+  
+  def cast(self, spell, caster, enemy):
+    res = None
+    if caster.isPlayer:
+      res = timedHitbar(spell.castingSpeed, spell.castingZones)
+    else:
+      res = random.randint(0, sum(spell.castingZones))
+
+    if caster.boost < 1:
+      caster.boost = 1
+    if caster.shield > 1:
+      caster.shield = 1
+    
+    printCastMessage("|B|The |LB|Opal Wand|B| washes away your negative boosts & shields!",\
+                     "|B|The |LB|Opal Wand|B| washes away {}'s negative boosts & shields!", caster, enemy)
+    
+    printCastMessage("|B|You cast %s with your |LB|Opal Wand|B|!" % spell.getName(),\
+                     "|B|{} casts %s with their |LB|Opal Wand|B|!" % spell.getName(), caster, enemy)
+
+    res = getZone(res, spell.castingZones)
+    spell.cast([res, caster.boost], caster, enemy)
+
+  def exactCast(self, spell, caster, enemy, zone):
+    if caster.boost < 1:
+      caster.boost = 1
+    if caster.shield > 1:
+      caster.shield = 1
+    
+    printCastMessage("|B|The |LB|Opal Wand|B| washes away your negative boosts & shields!",\
+                     "|B|The |LB|Opal Wand|B| washes away {}'s negative boosts & shields!", caster, enemy)
+    
+    printCastMessage("|B|You cast %s with your |LB|Opal Wand|B|!" % spell.getName(),\
+                     "|B|{} casts %s with their |LB|Opal Wand|B|!" % spell.getName(), caster, enemy)
+
+    spell.cast([zone, caster.boost], caster, enemy)
+
+
+class EmeraldWand(Wand):
+  def __init__(self):
+    self.name = "Emerald Wand"
+    self.nameColor = "LG"
+    
+    self.startDesc = "|DG|None"
+    self.passiveDesc = "|LG|Defends for 5% per spell cast (50% Cap)"
+    
+    self.lore = "Straight out of the Emerald City"
+
+  def cast(self, spell, caster, enemy):
+    res = None
+    if caster.isPlayer:
+      res = timedHitbar(spell.castingSpeed, spell.castingZones)
+    else:
+      res = random.randint(0, sum(spell.castingZones))
+
+    printCastMessage("|B|You cast %s with your |LG|Emerald Wand|B|!" % spell.getName(),\
+                     "|B|{} casts %s with their |LG|Emerald Wand|B|!" % spell.getName(), caster, enemy)
+
+    res = getZone(res, spell.castingZones)
+    spell.cast([res, caster.boost], caster, enemy)
+
+    caster.castShield(0.05, 1.5)
+    printCastMessage("|B|The |LG|Emerald Wand|B| gives you a defensive aura, defending for |G|5%|B|!",\
+                    "|B|The |LG|Emerald Wand|B| gives {} a defensive aura, defending for |G|5%|B|!",\
+                     caster, enemy)
+
+  def exactCast(self, spell, caster, enemy, zone):
+    printCastMessage("|B|You cast %s with your |LG|Emerald Wand|B|!" % spell.getName(),\
+                     "|B|{} casts %s with their |LG|Emerald Wand|B|!" % spell.getName(), caster, enemy)
+
+    spell.cast([zone, caster.boost], caster, enemy)
+    caster.castShield(0.05, 1.5)
+    
+    printCastMessage("|B|The |LG|Emerald Wand|B| gives you a defensive aura, defending for |G|5%|B|!",\
+                    "|B|The |LG|Emerald Wand|B| gives {} a defensive aura, defending for |G|5%|B|!",\
+                     caster, enemy)
 
 
 class BloodstoneWand(Wand):

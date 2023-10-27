@@ -18,6 +18,7 @@ INTERNAL_IDS = {
   3: SapphireWand(),
   4: EmeraldWand(),
   5: AmethystWand(),
+  6: OpalWand(),
   
   1001: AadhavanSpell(),
   1002: AaryaSpell(),
