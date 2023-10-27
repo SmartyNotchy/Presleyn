@@ -427,7 +427,22 @@ skipGoingToBedText = False
 
 while True:
   lastCheckedAct = SAVEFILE_PLAYER.act
-
+  if SAVEFILE_PLAYER.loc[1] == "OUTSIDE_SCHOOL_SIDEWALK_6":
+    if lastCheckedAct == 0:
+      dial("???", "What are you? An infant?")
+      dial("???", "You seem like the kind of individual who needs to be regularly strapped onto a breath monitor...")
+      dial("???", "...since, clearly, your brain isn’t receiving any of the oxygen you’re inhaling.")
+      dial("???", "Just navigate to the school's entrance, please.")
+      SAVEFILE_PLAYER.loc = ["OUTSIDE_ENTRANCE", "OUTSIDE_SCHOOL_SIDEWALK_5"]
+      continue
+    elif lastCheckedAct == 3 and not player.hasFlag("Entrance_Int1_KatherineEngineeringMoment"):
+      dial("???", "Hey, it looks like there's a group of people at the main school entrance.")
+      dial("???", "I know it's super easy to just use the Teacher's Pass to enter the school from the other side, but...")
+      dial("???", "I dunno, it looks like something important is happening over there.")
+      dial("???", "You should go check it out!")
+      SAVEFILE_PLAYER.loc = ["OUTSIDE_ENTRANCE", "OUTSIDE_SCHOOL_SIDEWALK_5"]
+      continue
+    
   if not alertedDismissalYet and SAVEFILE_PLAYER.timePast(420):
     dialNoSpeaker("|R|The bell chimes for dismissal!")
     dialNoSpeaker("Bus 2992 has pulled into the bus lane and is ready to leave.")
