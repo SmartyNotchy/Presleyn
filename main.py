@@ -426,7 +426,21 @@ alertedDismissalYet = False
 skipGoingToBedText = False
 
 while True:
-  lastCheckedAct = SAVEFILE_PLAYER.act  
+  lastCheckedAct = SAVEFILE_PLAYER.act
+  if lastCheckedAct >= 3:
+    clear()
+    printC("=== Demo Complete! ===", "B")
+    print()
+    printC("Congratulations on completing Act II of the Presleyn Demo!", "B")
+    printC("Akash, Arjun, and I thank you from the bottom of our hearts for taking the time to play our nifty little 8th grade computer science project.", "B")
+    printC("We sincerely hope you enjoyed! I know I had a blast writing the code for this project.", "B")
+    printC("A release date for |W|Act III|B| is planned for anywhere from right now to the heat death of the universe.", "B")
+    printC("See you there!", "B")
+    print()
+    printC("*Oh, and if you're an RCMS Alumni, thanks for all the memories. Cheers to an unforgettable three years! |PI|<3|DG|*", "DG")
+    enter()
+    break
+
   if not alertedDismissalYet and SAVEFILE_PLAYER.timePast(420):
     dialNoSpeaker("|R|The bell chimes for dismissal!")
     dialNoSpeaker("Bus 2992 has pulled into the bus lane and is ready to leave.")
