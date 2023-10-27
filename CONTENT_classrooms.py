@@ -5388,6 +5388,17 @@ class GreenhouseClassroom(Classroom):
 
   def run(self, player):
     if player.act == 2:
+      if player.hasItem(GymKeysItem) and player.hasFlag("MainGym_Int1_WhiteSucculent"):
+        dialNoSpeaker("As you try to open the Greenhouse door, you can spot Ms. Gleich sprinting towards you.")
+        dial("Ms. Gleich","What did I say?")
+        dial("Ms. Gleich","You're supposed to return the Gym Keys to me when you've collected that paddle.")
+        dial("Ms. Gleich","Although I have to admit that sneaking out during dismissal was a smart way to try to steal them.")
+        dial("Ms. Gleich","Not smart enough, though.")
+        dialNoSpeaker("Ms. Gleich snaches the Gym Keys straight out of your hands.")
+        dial("Ms. Gleich","Let that be a lesson.")
+        player.removeItem(GymKeysItem)
+        player.incrementQuestProgress(TableTennisQuest)
+    
       clear()
   
       printBoxedText("The Greenhouse")
