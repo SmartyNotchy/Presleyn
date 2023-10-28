@@ -17,7 +17,7 @@ def defaultLockedDoorInteraction(player):
     
 class Classroom:
   def __init__(self):
-    self.name = name
+    self.name = ""
     self.locked = []
     
   def getName(self, act):

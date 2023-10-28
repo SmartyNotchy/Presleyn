@@ -1,10 +1,11 @@
 ##### SHERRY WANG, ANNA ZHOU, AND BROOKE YIN STOP LOOKING AT THE CODE, THANK YOU VERY MUCH ####
 
 from imports import *
-
-#########################
-## LOCKED DOOR HELPERS ##
-#########################
+    
+class AlwaysLockedClassroom(Classroom):
+  def __init__(self):
+    self.name = "THIS SHOULD NOT BE USED AS A WAYPOINT"
+    self.locked = [1,2,3,4,5,6]
     
 class PrologueEntranceClassroom(Classroom):
   def __init__(self):
@@ -2163,8 +2164,8 @@ class Room221Classroom(Classroom):
         dial("Khang","...")
         dial("Khang","*(Sigh)* If you really want a spell battle, you could've just asked...")
 
-        if not runBattle(player, KhangBattleStudent()):
-          return
+        #if not runBattle(player, KhangBattleStudent()):
+        #  return
         # TODO: Implement
         # BTW How much health do Act III students have
         dial("Khang","...")
@@ -2228,7 +2229,6 @@ class Room221Classroom(Classroom):
         dial("Nathan","Okay, cue the lights!")
         dialNoSpeaker("Suddenly, the lights in the Gameshow Quarters fade out...")
         dial("Nathan","It's time to play the most popular gameshow ever hosted in Roberto Clemente Middle School!")
-        printC("*\n(This might take a while; make sure you're comfortable for the best gameshow of your life, guaranteed!*)", "DG")
         enter()
   
         scores = {
@@ -2280,7 +2280,7 @@ class Room221Classroom(Classroom):
         printLeaderboard(scores)
         print()
         printC("Question 1 Scoring: 1 Point")
-        choice = dropdownMenu("What is the Law of Cosines?", ["a^2+b^2=c^2", "(ax1+by1+c)/sqrt(a^2+b^2)", "c^2=a^2+b^2-2ab(cosC)", "a/sinA=b/sinB=c/sinC=2R"])
+        choice = dropdownMenu("What is the Law of Cosines?", ["a^2+b^2=c^2", "(ax1+by1+c)/sqrt(a^2+b^2)", "c^2=a^2+b^2-2ab(cosC)", "a/sinA=b/sinB=c/sinC=2"])
   
         dialNoSpeaker("You lock your answer into the device.")
         dial("Nathan", "All right, everyone answered Question #1!")
@@ -2384,7 +2384,7 @@ class Room221Classroom(Classroom):
         printLeaderboard(scores)
         print()
         printC("Question 5 Scoring: 3 Points")
-        choice = dropdownMenu("How many zoos are at this school?", ["1", "2", "3", "4"])
+        choice = dropdownMenu("How many zoos are at this school?", ["0", "2", "3", "5"])
         dialNoSpeaker("You lock your answer into the device.")
         dial("Nathan", "The correct answer was |W|3|B|.")
         dial("Katherine","Wait... I actually got it correct?")
@@ -2424,16 +2424,16 @@ class Room221Classroom(Classroom):
         printLeaderboard(scores)
         print()
         printC("Question 7 Scoring: 3 Points")
-        choice = dropdownMenu("Who replied first to the first comment on this replit?", ["SchoolDucc", "AnnaZhou2", "KatherineX", "itzrach"])
+        choice = dropdownMenu("Find the first syntax error in this program:\n\n1    a = 1\n2    b = a\n3    print('100' '200')\n4    b =+ a\n5    a < b > c\n6    a && b", ["Line 3", "Line 4", "Line 5", "Line 6"])
         dialNoSpeaker("You lock your answer into the device.")
-        dial("Nathan", "The correct answer was |W|SchoolDucc|B|!")
+        dial("Nathan", "The correct answer was |W|Line 6|B|!")
         dial("Katherine","Yes! I got it correct by guessing!")
         dial("Nathan","*(Sigh)* Khang, how are you getting all of these wrong?")
         dial("Khang","I have... no idea what any of this means.")
         dial("Nathan","Screw this, the next question will be worth 5 points!")
         dial("Katherine","Ooh! :O")
         enter()
-        if choice == 1:
+        if choice == 4:
           scores[(player.nameColor, player.name)] += 3
         scores[("PI", "Katherine Xu")] += 3
   
@@ -2443,9 +2443,9 @@ class Room221Classroom(Classroom):
         printLeaderboard(scores)
         print()
         printC("Question 8 Scoring: 5 Points")
-        choice = dropdownMenu("What is Nathan's favorite color?", ["Red", "Blue", "Yellow", "Green"]) # btw pilliam the player is forced to get this question wrong because I actually don't knwo nathans favorite color lol and don't care to ask him.
+        choice = dropdownMenu("What is Nathan's favorite color?", ["Red", "Blue", "Yellow", "Green"]) 
         dialNoSpeaker("You lock your answer into the device.")
-        dial("Nathan", "The correct answer was- wait-")
+        dial("Nathan", "The correct answer was |W|{}|B|!".format(["Red", "Blue", "Yellow", "Green"][choice-2]))
         dial("Nathan","Only one person got this question right...")
         dial("Lillian","Seriously |Y|Nathan|B|, did you expect any of us to know this?")
         dial("Nathan","Well, tell that to the person who got it correct...")
@@ -2548,7 +2548,7 @@ class Room221Classroom(Classroom):
         dial("Nathan","...")
   
         scores_sorted = sorted(scores.items(), key = lambda x : x[1])
-        winner = scores_sorted[3][0][1]
+        winner = scores_sorted[3][0]
         if winner[1] == player.name and winner[0] == player.nameColor:
           player.addFlag("Room221_Player_Won_Gameshow")
           dial("Nathan", "Well... congratulations {}... I guess...".format(player.getName()))

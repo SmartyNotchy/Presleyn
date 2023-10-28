@@ -24,11 +24,172 @@ WALL_SYMBOLS = {
   (False, True, True, True): "╦"
 }
 
+
+# DOORS
+
 DOOR_SYMBOLS = {
   (False, True, True, False): "━",
   (True, False, False, True): "┃"
 }
 
+UNLOCKED_DOOR_SYMBOLS = {
+  (False, True, True, False): "⁃",
+  (True, False, False, True): "╏"
+}
+
+DOORS_TO_CLASSROOMS = {
+  "PROLOGUE_AREA": 
+  [
+    PrologueEntranceClassroom,
+    PrologueEntranceClassroom,
+    PrologueEntranceClassroom,
+    PrologueEntranceClassroom,
+    PrologueEntranceClassroom
+  ],
+  "OUTSIDE_ENTRANCE":
+  [
+    OutsideMainEntranceClassroom,
+    OutsideMainEntranceClassroom,
+    OutsideMainEntranceClassroom,
+    OutsideMainEntranceClassroom,
+    OutsideMainEntranceClassroom
+  ],
+  "CARPOOL_LANE":\
+  [],
+  "SIDE_ENTRANCE":\
+  [
+    GreatIndoorsEntranceClassroom,
+    GreenhouseClassroom,
+    AlwaysLockedClassroom,
+    AlwaysLockedClassroom
+  ],
+  "BLACKTOP":\
+  [],
+  "MAIN_ENTRANCE":\
+  [
+    BuildingServicesClassroom,
+    Room246Classroom,
+    Room242Classroom,
+    Room241Classroom,
+    AlwaysLockedClassroom,
+    CafeteriaClassroom,
+    NursesOfficeClassroom,
+    CafeteriaClassroom,
+    MainOfficeClassroom,
+    SchoolExitClassroom,
+    SchoolExitClassroom,
+    SchoolExitClassroom
+  ],
+  "HALLWAY_ELECTIVE":\
+  [
+    Room240Classroom,
+    Room239Classroom,
+    Room237BClassroom,
+    Room238Classroom,
+    Room236CClassroom,
+    MediaCenterClassroom,
+    MediaCenterClassroom,
+    MediaCenterClassroom,
+    Room236AClassroom,
+    Room234Classroom,
+    Room232Classroom,
+    Room230Classroom,
+    Room235Classroom,
+    ElevatorClassroom
+  ],
+  "HALLWAY_6":\
+  [
+    Room220Classroom,
+    Room219Classroom,
+    Room217Classroom,
+    Room221Classroom,
+    Room222Classroom,
+    Room216Classroom,
+    Room213Classroom,
+    Room224Classroom,
+    Room211Classroom,
+    MediaCenterClassroom,
+    MediaCenterClassroom,
+    MediaCenterClassroom,
+    Room225Classroom,
+    Room212Classroom,
+    ElevatorClassroom
+  ],
+  "HALLWAY_7":\
+  [
+    AlwaysLockedClassroom,
+    Room146Classroom,
+    Room145Classroom,
+    Room149Classroom,
+    AlwaysLockedClassroom,
+    Room143Classroom,
+    Room150Classroom,
+    Room130Classroom,
+    Room129Classroom,
+    AlwaysLockedClassroom,
+    Room154Classroom,
+    Room131Classroom,
+    Room128Classroom,
+    AlwaysLockedClassroom,
+    AlwaysLockedClassroom,
+    Room155Classroom,
+    Room140Classroom,
+    Room137Classroom,
+    Room136Classroom,
+    Room156Classroom,
+    ElevatorClassroom
+  ],
+  "HALLWAY_8":\
+  [
+    AlwaysLockedClassroom,
+    Room120Classroom,
+    Room119Classroom,
+    Room121Classroom,
+    Room117Classroom,
+    AlwaysLockedClassroom,
+    Room122Classroom,
+    Room130Classroom,
+    Room129Classroom,
+    Room116Classroom,
+    Room113Classroom,
+    Room131Classroom,
+    Room128Classroom,
+    AlwaysLockedClassroom,
+    AlwaysLockedClassroom,
+    Room111Classroom,
+    Room112Classroom,
+    Room126Classroom,
+    Room125Classroom,
+    Room124Classroom,
+    ElevatorClassroom
+  ],
+  "HALLWAY_GYM":\
+  [
+    ElevatorClassroom,
+    MainGymClassroom,
+    GreatOutdoorsEntranceClassroom,
+    AlwaysLockedClassroom,
+    AlwaysLockedClassroom,
+    AlwaysLockedClassroom,
+    AlwaysLockedClassroom,
+    MainGymClassroom,
+    MainGymClassroom,
+    DanceStudioClassroom,
+    WeightRoomClassroom,
+    AuxiliaryGymClassroom,
+    AlwaysLockedClassroom,
+    AlwaysLockedClassroom,
+    AlwaysLockedClassroom
+  ]
+}
+
+
+
+
+
+
+
+# MAP BUILDERS
 
 def getWallSymbol(hasUp, hasLeft, hasRight, hasDown):
   return WALL_SYMBOLS[(hasUp, hasLeft, hasRight, hasDown)]
@@ -41,11 +202,15 @@ def getMapChar(map, pos):
   except:
     return " "
 
-def convertMap(origMap):
+def convertMap(origMap, player):
   # SPECIAL SYMBOLS:
   # ".+@|_"
   origMap = origMap.split("\n")[1:-1]
   newMap = [[]]
+
+  doorNum = 0
+  doorList = DOORS_TO_CLASSROOMS[player.loc[0]]
+
   for rowPos in range(len(origMap)):
     for colPos in range(len(origMap[rowPos])):
       char = getMapChar(origMap, [rowPos, colPos])
@@ -61,13 +226,18 @@ def convertMap(origMap):
       elif char == "+":
         newMap[-1].append("·")
       elif char == "@":
-        try:
+        doorIsLocked = player.act in doorList[doorNum]().locked
+        if doorIsLocked:
           newMap[-1].append(DOOR_SYMBOLS[getMapChar(origMap, [rowPos-1, colPos]) in "═╔╝╚╗║╣╬╠╩╦.@|",\
                                         getMapChar(origMap, [rowPos, colPos-1]) in "═╔╝╚╗║╣╬╠╩╦.@_",\
                                         getMapChar(origMap, [rowPos, colPos+1]) in "═╔╝╚╗║╣╬╠╩╦.@_",\
                                         getMapChar(origMap, [rowPos+1, colPos]) in "═╔╝╚╗║╣╬╠╩╦.@|"])
-        except:
-          newMap[-1].append("!")
+        else:
+          newMap[-1].append(UNLOCKED_DOOR_SYMBOLS[getMapChar(origMap, [rowPos-1, colPos]) in "═╔╝╚╗║╣╬╠╩╦.@|",\
+                                        getMapChar(origMap, [rowPos, colPos-1]) in "═╔╝╚╗║╣╬╠╩╦.@_",\
+                                        getMapChar(origMap, [rowPos, colPos+1]) in "═╔╝╚╗║╣╬╠╩╦.@_",\
+                                        getMapChar(origMap, [rowPos+1, colPos]) in "═╔╝╚╗║╣╬╠╩╦.@|"])
+        doorNum += 1
       else:
         newMap[-1].append(char)
     newMap[-1] = "".join(newMap[-1])
@@ -80,6 +250,8 @@ MAP_SYMBOL_COLORS = {
   "·": "DG",
   "━": "BG",
   "┃": "BG",
+  "⁃": "WG",
+  "╏": "WG",
   "!": "R"
 }
 
@@ -336,7 +508,7 @@ class SchoolMap():
                                         ..........................
                                         .         .___.     .    ..
                                         .   220   .___. 219 . 218 .
-                                        ........@..   .............
+                                        ........@..   ....@........
                                         .     . +   +     + @     .
                                         . 221 @   .......   . 217 .
            .................            .......   .  .  .   .......
@@ -383,8 +555,8 @@ ELECTIVE HALL      +     +    +     +     +     +    +    + .......
                                      ......   ................
                                     ..    ..@..___.     .    ..
                                     . 120 @ + .___. 119 . 118 .
-                                    .......   .   .............
-                                    .     @ +   +     + .     .
+                                    .......   .   ....@........
+                                    .     @ +   +     + @     .
                                     . 121 .   .......   . 117 .
          .......@.......            .......   .  .  .   .......
         ..    .   .    ..           .     @   .......   .     .
@@ -446,7 +618,7 @@ ELECTIVE HALL      +     +    +     +     +     +    +    + .......
   
       mapToPrint = self.asciiMaps[player.loc[0]]
       mapToPrint = mapToPrint[:playerLoc.pos[player.loc[0]] + 1] + "○" + mapToPrint[playerLoc.pos[player.loc[0]] + 2:]
-      mapToPrint = convertMap(mapToPrint) 
+      mapToPrint = convertMap(mapToPrint, player) 
       printMap(mapToPrint, "B")
 
     self.playerLastPos = playerLoc.pos[player.loc[0]]
@@ -459,12 +631,12 @@ ELECTIVE HALL      +     +    +     +     +     +    +    + .......
     adjRooms = playerLoc.rooms
     if player.act == 0:
       if len(adjRooms) > 0:
-        printC("Press SPACE to enter the school!", "W")
+        printC("Press SPACE to enter the school!", "WG")
       else:
         printC("Navigate to the school entrance!", "DG")
     else:
       if len(adjRooms) > 0:
-        printC("Press SPACE to enter nearby classrooms!", "W")
+        printC("Press SPACE to enter nearby classrooms!", "WG")
       else:
         print("                                          ")
     while True:
