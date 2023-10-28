@@ -1,10 +1,11 @@
 ##### SHERRY WANG, ANNA ZHOU, AND BROOKE YIN STOP LOOKING AT THE CODE, THANK YOU VERY MUCH ####
 
 from imports import *
-
-#########################
-## LOCKED DOOR HELPERS ##
-#########################
+    
+class AlwaysLockedClassroom(Classroom):
+  def __init__(self):
+    self.name = "THIS SHOULD NOT BE USED AS A WAYPOINT"
+    self.locked = [1,2,3,4,5,6]
     
 class PrologueEntranceClassroom(Classroom):
   def __init__(self):

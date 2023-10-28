@@ -64,7 +64,6 @@ from BATTLE_spells import *
 from BATTLE_wands import *
 from BATTLE_player import *
 from BATTLE_enemies import *
-from MAP_school import *
 from MISC_emails import *
 from MISC_items import *
 from MISC_quests import *
@@ -79,6 +78,7 @@ from CONTENT_enemies import *
 from MAP_classrooms import *
 from BATTLE_battles import *
 from CONTENT_classrooms import *
+from MAP_school import *
 from CONTENT_school import *
 
 from MAP_player import *

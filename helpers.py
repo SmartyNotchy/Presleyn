@@ -133,9 +133,10 @@ COLOR_KEY = {
   "DG": "\x1b[38;2;128;128;128m",
   "W": "\x1b[38;2;255;255;255m",
   "BR": "\x1b[38;2;128;70;27m",
-  "BG": "\x1b[38;2;60;64;62m"
+  "BG": "\x1b[38;2;60;64;62m",
+  "WG": "\x1b[38;2;155;155;155m"
 }
-COLOR_KEY_KEYS = ("R", "O", "BY", "Y", "LG", "G", "LB", "B", "DB", "PU", "PI", "DG", "W", "BR", "BG", "--")
+COLOR_KEY_KEYS = ("R", "O", "BY", "Y", "LG", "G", "LB", "B", "DB", "PU", "PI", "DG", "W", "BR", "BG", "WG", "--")
 
 def printC(txt, base_col = "DG", end = "\n", ignore_colors = False):
   inItalic = False
