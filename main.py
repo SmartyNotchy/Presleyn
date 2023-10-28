@@ -427,7 +427,7 @@ skipGoingToBedText = False
 
 while True:
   lastCheckedAct = SAVEFILE_PLAYER.act
-  if lastCheckedAct >= 4:
+  if lastCheckedAct >= 3:
     clear()
     printC("=== Demo Complete! ===", "B")
     print()
