@@ -119,17 +119,17 @@ class AadhavanSpell(Spell):
     self.castingZones = [4, 2, 4, 2, 4]
     self.castingSpeed = 1.25
     self.desc = "Deals |G|52|W|/|Y|26|W|/|R|0|--| damage."
-    self.lore = "Loves Valorant and Astronomy, a killer combo"
+    self.lore = "Cast a damaging magical lasso of the purest starlight"
 
   def cast(self, damageMultiplier, caster, target):
     quickDamageSpell(damageMultiplier, caster, target, \
                     [
-                      "But you break your telescope trying to look at Neptune!",
-                      "But {} breaks their telescope trying to look at Neptune!",
-                      "You can envision Makemake, dealing |R|%d|--| damage!",
-                      "{} can envision Makemake, dealing |R|%d|--| damage!",
-                      "You can see the Helix Nebula with a perfect view, empowering you to deal |R|%d|--| damage!",
-                      "{} can see the Helix Nebula with a perfect view, empowering them to deal |R|%d|--| damage!"
+                      "But your mind starts to hurt when you try to envision Neptune!",
+                      "But {}'s mind starts to hurt when they try to envision Neptune!",
+                      "You summon a fragment of Makemake, dealing |R|%d|--| damage!",
+                      "{} summon a fragmennt of Makemake, dealing |R|%d|--| damage!",
+                      "You throw a miniature replica of the Helix Nebula at {}, dealing |R|%d|--| damage!",
+                      "{} throw a miniature replica of the Helix Nebula at {}, dealing |R|%d|--| damage!"
                     ], [52, 26, 0])
 
 
@@ -165,7 +165,7 @@ class AkashSpell(Spell):
     self.castingZones = [3, 3, 3, 3, 3]
     self.castingSpeed = 1.0
     self.desc = "Defends for |G|15%|W|/|Y|8%|W|/|R|0%|--|. Caps at |G|25%|--|."
-    self.lore = "Loves grapefruits and sitting in a corner"
+    self.lore = "Grapefruits are nourishing & protective fruit"
     
 
   def cast(self, damageMultiplier, caster, target):
@@ -250,7 +250,7 @@ class AriamSpell(Spell):
     self.castingZones = [8, 3, 3, 3, 5]
     self.castingSpeed = 1.0
     self.desc = "Boosts spells by |G|20%|W|/|Y|12%|W|/|R|0%|--|. Caps at |G|40%|--|."
-    self.lore = 'Loves online multiplayer shooter games'
+    self.lore = 'A passion for Valorant carries over to spell battles'
     
 
   def cast(self, damageMultiplier, caster, target):
@@ -273,7 +273,7 @@ class ArjunSpell(Spell):
     self.castingZones = [3, 4, 4, 4, 3]
     self.castingSpeed = 1.0
     self.desc = "Boosts spells by |G|18%|W|/|Y|16%|W|/|R|0%|--|. Caps at |G|36%|--|."
-    self.lore = "Duck Master, you will suffer if you harm them"
+    self.lore = "Empower yourself with... the Duck Song?"
     
     
   def cast(self, damageMultiplier, caster, target):
@@ -296,7 +296,7 @@ class BenedicteSpell(Spell):
     self.castingZones = [2, 4, 3, 4, 2]
     self.castingSpeed = 1.25
     self.desc = "Heal for |G|38|W|/|Y|12|W|/|R|0|--| health."
-    self.lore = "Has candy everywhere, at all times"
+    self.lore = "The healing power of copius amounts of sugar"
     
 
   def cast(self, damageMultiplier, caster, target):
@@ -342,7 +342,7 @@ class BrandonVSpell(Spell):
     self.castingZones = [3, 3, 3, 3, 3]
     self.castingSpeed = 1.5
     self.desc = "Boosts spells by |G|38%|W|/|Y|19%|W|/|R|0%|--|. Caps at |G|60%|--|."
-    self.lore = "Don't get too close, he'll smack you"
+    self.lore = "Each whack with this magical beanie boosts your spells"
     
     
   def cast(self, damageMultiplier, caster, target):
@@ -449,7 +449,7 @@ class ChrisSpell(Spell):
     self.castingZones = [4, 4, 5, 4, 4]
     self.castingSpeed = 1
     self.desc = "Deals |G|24|W|/|Y|12|W|/|R|0|--| damage."
-    self.lore = "Will ask you to play chess with him"
+    self.lore = "Summon a glue gun to inflict minor magical burns!"
     
   def cast(self, damageMultiplier, caster, target):
     quickDamageSpell(damageMultiplier, caster, target, \
@@ -458,8 +458,8 @@ class ChrisSpell(Spell):
                       # so like "But you burn yourself..." idk if it's a good idea or not, your choice
                       # Yyour choice, just saying (sorry caps lock) actually you know what just speedrun the general idea of each cast method
                       # and i/akash will standardize it for consistency (grammar-wise) k
-                      "But you burn yourself with a hot glue gun!",
-                      "But {} burns themselves with a hot glue gun!",
+                      "But your hot glue gun takes too long to heat up!",
+                      "But {}'s hot glue gun takes too long to heat up!",
                       "A little bit of hot glue sticks on to {}, dealing |R|%d|--| damage!", #might work better idk
                       "A little bit of hot glue sticks on to you, dealing |R|%d|--| damage!", # just letting you know you can do this
                       "You fire the glue gun perfectly at {}, dealing |R|%d|--| damage!",
@@ -499,7 +499,7 @@ class DashaSpell(Spell):
     self.castingZones = [4, 1, 3, 1, 9]
     self.castingSpeed = 1.25
     self.desc = "Boosts spells by |G|33%|W|/|Y|17%|W|/|R|0%|--|. Caps at |G|50%|--|."
-    self.lore = "Loves to talk about her musical passions, a lot"
+    self.lore = "Music is empowering, especially when you're the singer"
     
   def cast(self, damageMultiplier, caster, target):
     quickBoostSpell(damageMultiplier, caster, target, \
@@ -520,7 +520,7 @@ class DonSpell(Spell):
     self.castingZones = [5, 2, 4, 2, 5]
     self.castingSpeed = 1.5
     self.desc = "Deals |G|64|W|/|Y|32|W|/|R|0|--| damage."
-    self.lore = "..."
+    self.lore = "... did you hear something?"
     
 
   def cast(self, damageMultiplier, caster, target):
@@ -543,7 +543,7 @@ class EdemSpell(Spell):
     self.castingZones = [5, 4, 3, 4, 5]
     self.castingSpeed = 1.5
     self.desc = "Heal for |G|50|W|/|Y|15|W|/|R|0|--| health."
-    self.lore = "The sweetest guy on the planet, until he's the worst"
+    self.lore = "Your sweet personality works towards your health"
     
 
   def cast(self, damageMultiplier, caster, target):
@@ -649,7 +649,7 @@ class GoranSpell(Spell):
     self.castingZones = [5, 2, 4, 2, 5]
     self.castingSpeed = 1.0
     self.desc = "Defends for |G|10%|W|/|Y|6%|W|/|R|0%|--|. Caps at |G|30%|--|."
-    self.lore = "Loves to watch people building stuff and talk with people"
+    self.lore = "Winning arguments (rightfully) boosts your ego"
 
   def cast(self, damageMultiplier, caster, target):
     quickShieldSpell(damageMultiplier, caster, target, \
@@ -673,7 +673,7 @@ class HenrySpell(Spell):
     self.castingZones = [2, 2, 7, 2, 2]
     self.castingSpeed = 1.25
     self.desc = "Boosts spells by |G|12%|W|/|Y|10%|W|/|R|0%|--|. Caps at |G|64%|--|."
-    self.lore = "Jim is all he does, Jim is all he is"
+    self.lore = "Gains at the gym equal more powerful spells"
 
   def cast(self, damageMultiplier, caster, target):
     quickBoostSpell(damageMultiplier, caster, target, \
@@ -757,7 +757,7 @@ class JustinSpell(Spell):
     self.castingZones = [7, 5, 3, 3, 4]
     self.castingSpeed = 1.0
     self.desc = "Heal for |G|20|W|/|Y|5|W|/|R|0|--| health."
-    self.lore = "Will talk about musical passions as well, mainly with Dasha"
+    self.lore = "The guitar feels a bit off tune"
     
     
   def cast(self, damageMultiplier, caster, target):
@@ -802,7 +802,7 @@ class KedusSpell(Spell):
     self.castingZones = [9, 2, 3, 4, 3]
     self.castingSpeed = 1.25
     self.desc = "Defends for |G|25%|W|/|Y|6%|W|/|R|0%|--|. Caps at |G|32%|--|."
-    self.lore = "You can see the top of his head!"
+    self.lore = "Smaller stature makes your harder to hit"
     
     
   def cast(self, damageMultiplier, caster, target):
@@ -810,10 +810,10 @@ class KedusSpell(Spell):
                     [
                       "But, you are too small to protect yourself from any real damage...",
                       "But, {} is too small to protect themselves from any real damage...",
-                      "You can protect yourself pretty well, defending yourself by |G|6%|--|!",
-                      "{} can protect themselves pretty well, defending them by |G|6%|--|!",
-                      "You attack from underneath, rendering them defenseless and defending yourself by |G|25%|--|!",
-                      "{} attacks from underneath, rendering you defenseless and defending them by |G|25%|--|!"
+                      "You duck a little to avoid some spells, defending yourself by |G|6%|--|!",
+                      "{} ducks a little to avoid some spells, defending them by |G|6%|--|!",
+                      "You shrink just enough to avoid most hits, defending yourself by |G|25%|--|!",
+                      "{} shrinks just enough to avoid most hits, defending them by |G|25%|--|!"
                     ], [0.25, 0.06, 0], 0.32)
 
 class KhangSpell(Spell):
@@ -880,7 +880,7 @@ class LillianSpell(Spell):
     self.castingZones = [5, 5, 2, 3, 3]  # R/Y/G/Y/R
     self.castingSpeed = 1.5
     self.desc = "Deals |G|36|W|/|Y|20|W|/|R|0|--| damage & Heals for |G|30|W|/|Y|10|W|/|R|0|--| health"
-    self.lore = "TBD" 
+    self.lore = "Huh? I never took damage from that spell..."
     
     
   def cast(self, damageMultiplier, caster, target):
@@ -907,8 +907,8 @@ class LukeSpell(Spell):
     self.nameColor = "Y"
     self.castingZones = [0, 4, 6, 4, 0]
     self.castingSpeed = 1.5
-    self.desc = "Boosts spells by |G|20%|W|/|Y|12%|W|/|R|0%|--|. Caps at |G|70%|--|."
-    self.lore = "TBD"
+    self.desc = "Boosts spells by |G|20%|W|/|Y|12%|W|. Caps at |G|70%|--|."
+    self.lore = "People who boast about their IQ aren't truly intelligent."
     
     
   def cast(self, damageMultiplier, caster, target):
@@ -946,7 +946,7 @@ class NathanSpell(Spell):
     self.castingZones = [6, 3, 5, 3, 6]
     self.castingSpeed = 1.5
     self.desc = "Heal for |G|40|W|/|Y|22|W|/|R|0|--| health."
-    self.lore = "TBD"
+    self.lore = "Peanuts: delicious treats, whether sweet or salty"
     
 
   def cast(self, damageMultiplier, caster, target):
@@ -969,7 +969,7 @@ class OmkarSpell(Spell):
     self.castingZones = [3, 3, 6, 3, 3]
     self.castingSpeed = 0.8
     self.desc = "Deals |G|18|W|/|Y|16|W|/|R|0|--| damage."
-    self.lore = "Spends 20 hours a day doing CAD, the other 4 mowing his lawn"
+    self.lore = "CAD Dimensioning: the bane of any IED student's existence"
 
   def cast(self, damageMultiplier, caster, target):
     quickDamageSpell(damageMultiplier, caster, target, \
@@ -991,17 +991,17 @@ class PercySpell(Spell):
     self.castingZones = [1, 3, 2, 3, 1]
     self.castingSpeed = 1.5
     self.desc = "Deals |G|56|W|/|Y|44|W|/|R|0|--| damage."
-    self.lore = "TBD"
+    self.lore = "A dazzling display and a deadly lightshow"
 
   def cast(self, damageMultiplier, caster, target):
     quickDamageSpell(damageMultiplier, caster, target, \
                     [
                       "But your rainbow turns black and white!",
                       "But {}'s rainbow turns black and white!",
-                      "Your rainbow works, but it is missing red! It still deals |R|%d|--| damage.",
-                      "{}'s rainbow works, but it is missing red! It still deals |R|%d|--| damage.",
-                      "Your rainbow works, and you even find a pot of gold at the end, dealing |R|%d|--| damage!",
-                      "{}'s rainbow works, and they even find a pot of gold at the end, dealing |R|%d|--| damage!"
+                      "You cast a faint rainbow at {}, dealing |R|%d|--| damage.",
+                      "{} casts a faint rainbow at you, dealing |R|%d|--| damage.",
+                      "You cast a truly vibrant rainbow at {}, dealing |R|%d|--| damage!",
+                      "{}'s casts a truly vibrant rainbow at you, dealing |R|%d|--| damage!"
                     ], [56, 44, 0])
 
 class PeterSpell(Spell):
@@ -1027,7 +1027,7 @@ class PilliamSpell(Spell):
     self.castingZones = [4, 3, 4, 3, 4]
     self.castingSpeed = 1.0
     self.desc = "Heal for |G|15|W|/|Y|10|W|/|R|0|--| health."
-    self.lore = "Eats strawberries and codes the whole day"
+    self.lore = "Strawberries: delicious, sweet, levitating collectibles"
 
   def cast(self, damageMultiplier, caster, target):
     quickHealthSpell(damageMultiplier, caster, target, \
@@ -1096,12 +1096,11 @@ class PrestonSpell(Spell):
     self.castingZones = [5, 3, 5, 3, 5]
     self.castingSpeed = 1
     self.desc = "Deals |G|20|W|/|Y|13|W|/|R|0|--| damage."
-    self.lore = "Will ask you to dab him up, it is mandatory"
+    self.lore = "Start a reality company & inflict emotional damage"
 
   def cast(self, damageMultiplier, caster, target):
     quickDamageSpell(damageMultiplier, caster, target, \
                     [
-                      # k
                       "But your reality company loses a lot of money!", 
                       "But {}'s reality company loses a lot of money!",
                       "Your reality company makes a net gain, dealing |R|%d|--| damage!",
@@ -1156,15 +1155,15 @@ class RyanSpell(Spell):
     self.castingZones = [8, 4, 4, 4, 3]
     self.castingSpeed = 1.25
     self.desc = "Deals |G|46|W|/|Y|34|W|/|R|0|--| damage."
-    self.lore = "Spends 90% of class playing random computer games"
+    self.lore = "Infect the enemy's code with your own program's bugs"
     
   def cast(self, damageMultiplier, caster, target):
     quickDamageSpell(damageMultiplier, caster, target, \
                     [
                       "But you are unable to debug your program!",
                       "But {} is unable to debug their program!",
-                      "You debug your program, but can't fix a logic error! It still deals |R|%d|--| damage.",
-                      "{} debugs their program, but can't fix a logic error! They still deal |R|%d|--| damage.",
+                      "You debug your program a little, dealing |R|%d|--| damage.",
+                      "{} debugs their program a little, dealing |R|%d|--| damage.",
                       "You completely debugged your program, empowering you to deal |R|%d|--| damage!",
                       "{} completely debugged their program, empowering them to deal |R|%d|--| damage!"
                     ], [46, 34, 0])
@@ -1200,17 +1199,17 @@ class SergiSpell(Spell):
     self.castingZones = [8, 3, 2, 3, 8]
     self.castingSpeed = 1.5
     self.desc = "Defends for |G|24%|W|/|Y|12%|W|/|R|0%|--|. Caps at |G|37%|--|."
-    self.lore = "TBD"
+    self.lore = "Wigs are actually more protective than you think"
     
   def cast(self, damageMultiplier, caster, target):
     quickShieldSpell(damageMultiplier, caster, target, \
                     [
                       "But, your wig falls off...",
                       "But, {}'s wig falls off...",
-                      "You get your wig, but it's of poor quality, only defending you for |G|12%|--|!",
-                      "{} gets their wig, but it's of poor quality, only defending themselves for |G|12%|--|!",
-                      "You get your wig, and it's of great quality, defending yourself for |G|24%|--|!",
-                      "{} gets their wig, and it's of great quality, defending themselves for |G|24%|--|!"
+                      "You summon a wig of decent quality, only defending you for |G|12%|--|!",
+                      "{} summons a wig of decent quality, only defending themselves for |G|12%|--|!",
+                      "You summon a wig of excellent quality, defending yourself for |G|24%|--|!",
+                      "{} summons a wig of excellent quality, defending themselves for |G|24%|--|!"
                     ], [0.24, 0.12, 0], 0.37)
 
 class ShameerSpell(Spell):
@@ -1258,7 +1257,7 @@ class ShriramSpell(Spell):
     self.castingZones = [9, 0, 0, 0, 0]
     self.castingSpeed = 1
     self.desc = "Heals |R|-15|B| health."
-    self.lore = "Will brag about test scores and having the worst grades"
+    self.lore = "... but isn't the main ingredient... seasoning?"
 
   def cast(self, damageMultiplier, caster, target):
     caster.health -= 15
@@ -1321,7 +1320,7 @@ class TerenceSpell(Spell):
     self.castingZones = [5, 1, 5, 1, 5]
     self.castingSpeed = 1.5
     self.desc = "Defends for |G|18%|W|/|Y|15%|W|/|R|0%|--|. Caps at |G|42%|--|."
-    self.lore = "TBD"
+    self.lore = "Nobody would attack such an innocent student..."
   
   def cast(self, damageMultiplier, caster, target):
     quickShieldSpell(damageMultiplier, caster, target, \
@@ -1343,7 +1342,7 @@ class TylerSpell(Spell):
     self.castingZones = [3, 4, 3, 2, 9]
     self.castingSpeed = 1.25
     self.desc = "Defends for |G|12%|W|/|Y|12%|W|/|R|0%|--|. Caps at |G|35%|--|."
-    self.lore = "You'll never see what hides behind that hood..."
+    self.lore = "The hood gives you a sense of security"
     
   def cast(self, damageMultiplier, caster, target):
     quickShieldSpell(damageMultiplier, caster, target, \
